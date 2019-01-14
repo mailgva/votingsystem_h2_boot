@@ -1,0 +1,1 @@
+web:    java $JAVA_OPTS -DVOTING_ROOT="." -jar target/dependency/webapp-runner.jar --port $PORT target/*.war

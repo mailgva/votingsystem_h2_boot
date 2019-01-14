@@ -1,0 +1,322 @@
+
+C:\JAVA_PROJECTS\graduation2>call mvn -B -s settings.xml -DskipTests=true clean package 
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Voting 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.1.1/maven-dependency-plugin-3.1.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.1.1/maven-dependency-plugin-3.1.1.pom (15 kB at 13 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/31/maven-plugins-31.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/31/maven-plugins-31.pom (10 kB at 70 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.1.1/maven-dependency-plugin-3.1.1.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.1.1/maven-dependency-plugin-3.1.1.jar (167 kB at 601 kB/s)
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ voting ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ voting ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 18 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ voting ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 75 source files to C:\JAVA_PROJECTS\graduation2\target\classes
+[INFO] /C:/JAVA_PROJECTS/graduation2/src/main/java/com/voting/repository/datajpa/CrudUserRepository.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/JAVA_PROJECTS/graduation2/src/main/java/com/voting/repository/datajpa/CrudUserRepository.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ voting ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ voting ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 21 source files to C:\JAVA_PROJECTS\graduation2\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ voting ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ voting ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [voting] in [C:\JAVA_PROJECTS\graduation2\target\voting]
+[INFO] Processing war project
+[INFO] Copying webapp resources [C:\JAVA_PROJECTS\graduation2\src\main\webapp]
+[INFO] Webapp assembled in [6935 msecs]
+[INFO] Building war: C:\JAVA_PROJECTS\graduation2\target\voting.war
+[INFO] WEB-INF\web.xml already added, skipping
+[INFO] 
+[INFO] --- maven-dependency-plugin:3.1.1:copy (default) @ voting ---
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.pom (770 B at 7.1 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.7.1/plexus-containers-1.7.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-containers/1.7.1/plexus-containers-1.7.1.pom (5.0 kB at 16 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-impl/2.3/maven-reporting-impl-2.3.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-impl/2.3/maven-reporting-impl-2.3.pom (5.0 kB at 13 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.2/doxia-sink-api-1.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sink-api/1.2/doxia-sink-api-1.2.pom (1.6 kB at 11 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia/1.2/doxia-1.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia/1.2/doxia-1.2.pom (19 kB at 162 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-logging-api/1.2/doxia-logging-api-1.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-logging-api/1.2/doxia-logging-api-1.2.pom (1.6 kB at 15 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-core/1.2/doxia-core-1.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-core/1.2/doxia-core-1.2.pom (4.0 kB at 25 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-site-renderer/1.2/doxia-site-renderer-1.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-site-renderer/1.2/doxia-site-renderer-1.2.pom (6.2 kB at 53 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sitetools/1.2/doxia-sitetools-1.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-sitetools/1.2/doxia-sitetools-1.2.pom (16 kB at 143 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-decoration-model/1.2/doxia-decoration-model-1.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-decoration-model/1.2/doxia-decoration-model-1.2.pom (3.1 kB at 28 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xhtml/1.2/doxia-module-xhtml-1.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-xhtml/1.2/doxia-module-xhtml-1.2.pom (1.8 kB at 15 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-modules/1.2/doxia-modules-1.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-modules/1.2/doxia-modules-1.2.pom (2.5 kB at 22 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-fml/1.2/doxia-module-fml-1.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-module-fml/1.2/doxia-module-fml-1.2.pom (5.6 kB at 46 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.pom (4.8 kB at 23 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/5.0/plexus-5.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus/5.0/plexus-5.0.pom (21 kB at 159 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.pom (4.7 kB at 40 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.0.1/plexus-io-3.0.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.0.1/plexus-io-3.0.1.pom (4.5 kB at 36 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.pom (14 kB at 85 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.pom (16 kB at 137 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/43/commons-parent-43.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/43/commons-parent-43.pom (70 kB at 326 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.8/xz-1.8.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.8/xz-1.8.pom (1.9 kB at 12 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.0.0/plexus-io-3.0.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.0.0/plexus-io-3.0.0.pom (4.5 kB at 40 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-analyzer/1.10/maven-dependency-analyzer-1.10.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-analyzer/1.10/maven-dependency-analyzer-1.10.pom (6.7 kB at 48 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/31/maven-shared-components-31.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-components/31/maven-shared-components-31.pom (5.1 kB at 47 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/2.0.5/maven-model-2.0.5.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/2.0.5/maven-model-2.0.5.pom (2.7 kB at 24 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven/2.0.5/maven-2.0.5.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven/2.0.5/maven-2.0.5.pom (5.7 kB at 48 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/2.0.5/maven-artifact-2.0.5.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/2.0.5/maven-artifact-2.0.5.pom (727 B at 6.9 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.pom (7.5 kB at 56 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.9.1/maven-artifact-transfer-0.9.1.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.9.1/maven-artifact-transfer-0.9.1.pom (7.6 kB at 50 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-utils/3.2.0/maven-shared-utils-3.2.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-utils/3.2.0/maven-shared-utils-3.2.0.pom (4.9 kB at 34 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.pom (12 kB at 90 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-velocity/1.1.7/plexus-velocity-1.1.7.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/commons-digester/commons-digester/1.6/commons-digester-1.6.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-core/1.2/doxia-core-1.2.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-impl/2.3/maven-reporting-impl-2.3.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/doxia/doxia-core/1.2/doxia-core-1.2.jar (154 kB at 682 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.jar (4.3 kB at 11 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.jar (191 kB at 451 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.8/xz-1.8.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/commons-digester/commons-digester/1.6/commons-digester-1.6.jar (168 kB at 355 kB/s)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-velocity/1.1.7/plexus-velocity-1.1.7.jar (7.7 kB at 16 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.0.0/plexus-io-3.0.0.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/reporting/maven-reporting-impl/2.3/maven-reporting-impl-2.3.jar (18 kB at 37 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-analyzer/1.10/maven-dependency-analyzer-1.10.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/tukaani/xz/1.8/xz-1.8.jar (109 kB at 165 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.16.1/commons-compress-1.16.1.jar (560 kB at 831 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.9.1/maven-artifact-transfer-0.9.1.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/3.0.0/plexus-io-3.0.0.jar (74 kB at 103 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-utils/3.2.0/maven-shared-utils-3.2.0.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar (262 kB at 354 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-shared-utils/3.2.0/maven-shared-utils-3.2.0.jar (165 kB at 167 kB/s)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-artifact-transfer/0.9.1/maven-artifact-transfer-0.9.1.jar (123 kB at 120 kB/s)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-tree/3.0.1/maven-dependency-tree-3.0.1.jar (37 kB at 33 kB/s)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar (588 kB at 521 kB/s)
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/shared/maven-dependency-analyzer/1.10/maven-dependency-analyzer-1.10.jar (35 kB at 28 kB/s)
+[INFO] Configured Artifact: com.github.jsimone:webapp-runner-main:9.0.14.0:jar
+[INFO] Downloading: https://repo.maven.apache.org/maven2/com/github/jsimone/webapp-runner-main/9.0.14.0/webapp-runner-main-9.0.14.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/com/github/jsimone/webapp-runner-main/9.0.14.0/webapp-runner-main-9.0.14.0.pom (2.2 kB at 13 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/com/github/jsimone/webapp-runner-parent/9.0.14.0/webapp-runner-parent-9.0.14.0.pom
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/com/github/jsimone/webapp-runner-parent/9.0.14.0/webapp-runner-parent-9.0.14.0.pom (9.5 kB at 81 kB/s)
+[INFO] Downloading: https://repo.maven.apache.org/maven2/com/github/jsimone/webapp-runner-main/9.0.14.0/webapp-runner-main-9.0.14.0.jar
+[INFO] Downloaded: https://repo.maven.apache.org/maven2/com/github/jsimone/webapp-runner-main/9.0.14.0/webapp-runner-main-9.0.14.0.jar (7.5 MB at 2.2 MB/s)
+[INFO] Copying webapp-runner-main-9.0.14.0.jar to C:\JAVA_PROJECTS\graduation2\target\dependency\webapp-runner.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:12 min
+[INFO] Finished at: 2018-12-22T17:32:38+02:00
+[INFO] Final Memory: 25M/87M
+[INFO] ------------------------------------------------------------------------
+Expanding voting.war into C:\JAVA_PROJECTS\graduation2\target\tomcat.8080\webapps\expanded
+Adding Context  for C:\JAVA_PROJECTS\graduation2\target\tomcat.8080\webapps\expanded
+17:32:56.084 [34mINFO [0;39m [36morg.springframework.web.context.ContextLoader.initWebApplicationContext:270[0;39m - Root WebApplicationContext: initialization started
+17:32:56.769 [34mINFO [0;39m [36mo.s.security.core.SpringSecurityCoreVersion.performVersionChecks:81[0;39m - You are running with Spring Security Core 5.1.1.RELEASE
+17:32:56.779 [34mINFO [0;39m [36mo.s.security.config.SecurityNamespaceHandler.<init>:78[0;39m - Spring Security 'config' module version is 5.1.1.RELEASE
+17:32:56.893 [34mINFO [0;39m [36mo.s.s.c.h.FilterInvocationSecurityMetadataSourceParser.parseInterceptUrlsForFilterInvocationRequestMap:194[0;39m - Creating access control expression attribute 'hasRole('ROLE_ADMIN')' for /rest/admin/**
+17:32:56.895 [34mINFO [0;39m [36mo.s.s.c.h.FilterInvocationSecurityMetadataSourceParser.parseInterceptUrlsForFilterInvocationRequestMap:194[0;39m - Creating access control expression attribute 'isAuthenticated()' for /**
+17:32:56.954 [34mINFO [0;39m [36mo.s.s.config.http.HttpSecurityBeanDefinitionParser.checkFilterChainOrder:307[0;39m - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, Root bean: class [org.springframework.security.web.header.HeaderWriterFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 500, Root bean: class [org.springframework.security.web.authentication.www.BasicAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1800, Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.security.config.http.HttpConfigurationBuilder$SecurityContextHolderAwareRequestFilterBeanFactory#0; factoryMethodName=getBean; initMethodName=null; destroyMethodName=null, order = 2000, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2300, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2500, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2600]
+17:32:56.973 [34mINFO [0;39m [36mo.s.s.c.h.FilterInvocationSecurityMetadataSourceParser.parseInterceptUrlsForFilterInvocationRequestMap:194[0;39m - Creating access control expression attribute 'permitAll()' for /login
+17:32:56.974 [34mINFO [0;39m [36mo.s.s.c.h.FilterInvocationSecurityMetadataSourceParser.parseInterceptUrlsForFilterInvocationRequestMap:194[0;39m - Creating access control expression attribute 'hasRole('ROLE_ADMIN')' for /**/admin/**
+17:32:56.975 [34mINFO [0;39m [36mo.s.s.c.h.FilterInvocationSecurityMetadataSourceParser.parseInterceptUrlsForFilterInvocationRequestMap:194[0;39m - Creating access control expression attribute 'isAuthenticated()' for /**
+17:32:57.001 [34mINFO [0;39m [36mo.s.s.config.http.HttpSecurityBeanDefinitionParser.checkFilterChainOrder:307[0;39m - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, Root bean: class [org.springframework.security.web.header.HeaderWriterFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 500, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 800, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1900, Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.security.config.http.HttpConfigurationBuilder$SecurityContextHolderAwareRequestFilterBeanFactory#1; factoryMethodName=getBean; initMethodName=null; destroyMethodName=null, order = 2000, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2300, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2400, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2500, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#1>, order = 2600]
+17:32:57.633 [34mINFO [0;39m [36mo.s.d.r.config.RepositoryConfigurationDelegate.registerRepositoriesIn:126[0;39m - Bootstrapping Spring Data repositories in DEFAULT mode.
+17:32:58.034 [34mINFO [0;39m [36mo.s.d.r.config.RepositoryConfigurationDelegate.registerRepositoriesIn:182[0;39m - Finished Spring Data repository scanning in 375ms. Found 5 repository interfaces.
+17:32:58.565 [31mWARN [0;39m [36mo.s.context.support.AbstractApplicationContext.refresh:554[0;39m - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Invalid bean definition with name 'org.springframework.jdbc.datasource.init.DataSourceInitializer#0' defined in null: Could not resolve placeholder 'jdbc.populateSql' in value "classpath:db/${jdbc.populateSql}"; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'jdbc.populateSql' in value "classpath:db/${jdbc.populateSql}"
+17:32:58.575 [1;31mERROR[0;39m [36morg.springframework.web.context.ContextLoader.initWebApplicationContext:312[0;39m - Context initialization failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Invalid bean definition with name 'org.springframework.jdbc.datasource.init.DataSourceInitializer#0' defined in null: Could not resolve placeholder 'jdbc.populateSql' in value "classpath:db/${jdbc.populateSql}"; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'jdbc.populateSql' in value "classpath:db/${jdbc.populateSql}"
+	at org.springframework.beans.factory.config.PlaceholderConfigurerSupport.doProcessProperties(PlaceholderConfigurerSupport.java:228)
+	at org.springframework.beans.factory.config.PropertyPlaceholderConfigurer.processProperties(PropertyPlaceholderConfigurer.java:225)
+	at org.springframework.beans.factory.config.PropertyResourceConfigurer.postProcessBeanFactory(PropertyResourceConfigurer.java:86)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:286)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:166)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:691)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:528)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:400)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:291)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4663)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5131)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1382)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1372)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:907)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:831)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1382)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1372)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:907)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:423)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:933)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:398)
+	at webapp.runner.launch.Main.main(Main.java:289)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'jdbc.populateSql' in value "classpath:db/${jdbc.populateSql}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:172)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124)
+	at org.springframework.beans.factory.config.PropertyPlaceholderConfigurer$PlaceholderResolvingStringValueResolver.resolveStringValue(PropertyPlaceholderConfigurer.java:244)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.resolveStringValue(BeanDefinitionVisitor.java:296)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.resolveValue(BeanDefinitionVisitor.java:217)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.visitIndexedArgumentValues(BeanDefinitionVisitor.java:156)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.visitBeanDefinition(BeanDefinitionVisitor.java:89)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.resolveValue(BeanDefinitionVisitor.java:176)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.visitPropertyValues(BeanDefinitionVisitor.java:147)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.visitBeanDefinition(BeanDefinitionVisitor.java:85)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.resolveValue(BeanDefinitionVisitor.java:176)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.visitList(BeanDefinitionVisitor.java:241)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.resolveValue(BeanDefinitionVisitor.java:205)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.visitPropertyValues(BeanDefinitionVisitor.java:147)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.visitBeanDefinition(BeanDefinitionVisitor.java:85)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.resolveValue(BeanDefinitionVisitor.java:176)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.visitPropertyValues(BeanDefinitionVisitor.java:147)
+	at org.springframework.beans.factory.config.BeanDefinitionVisitor.visitBeanDefinition(BeanDefinitionVisitor.java:85)
+	at org.springframework.beans.factory.config.PlaceholderConfigurerSupport.doProcessProperties(PlaceholderConfigurerSupport.java:225)
+	... 34 common frames omitted
+Завершить выполнение пакетного файла [Y(да)/N(нет)]? 
+C:\JAVA_PROJECTS\graduation2>call mvn -B -s settings.xml -DskipTests=true clean package 
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Voting 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ voting ---
+[INFO] Deleting C:\JAVA_PROJECTS\graduation2\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ voting ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 18 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ voting ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 75 source files to C:\JAVA_PROJECTS\graduation2\target\classes
+[INFO] /C:/JAVA_PROJECTS/graduation2/src/main/java/com/voting/repository/datajpa/CrudUserRepository.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/JAVA_PROJECTS/graduation2/src/main/java/com/voting/repository/datajpa/CrudUserRepository.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ voting ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ voting ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 21 source files to C:\JAVA_PROJECTS\graduation2\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ voting ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ voting ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [voting] in [C:\JAVA_PROJECTS\graduation2\target\voting]
+[INFO] Processing war project
+[INFO] Copying webapp resources [C:\JAVA_PROJECTS\graduation2\src\main\webapp]
+[INFO] Webapp assembled in [4266 msecs]
+[INFO] Building war: C:\JAVA_PROJECTS\graduation2\target\voting.war
+[INFO] WEB-INF\web.xml already added, skipping
+[INFO] 
+[INFO] --- maven-dependency-plugin:3.1.1:copy (default) @ voting ---
+[INFO] Configured Artifact: com.github.jsimone:webapp-runner-main:9.0.14.0:jar
+[INFO] Copying webapp-runner-main-9.0.14.0.jar to C:\JAVA_PROJECTS\graduation2\target\dependency\webapp-runner.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 32.374 s
+[INFO] Finished at: 2018-12-22T17:38:14+02:00
+[INFO] Final Memory: 30M/104M
+[INFO] ------------------------------------------------------------------------
+Expanding voting.war into C:\JAVA_PROJECTS\graduation2\target\tomcat.8080\webapps\expanded
+Adding Context  for C:\JAVA_PROJECTS\graduation2\target\tomcat.8080\webapps\expanded
+17:38:26.786 [34mINFO [0;39m [36morg.springframework.web.context.ContextLoader.initWebApplicationContext:270[0;39m - Root WebApplicationContext: initialization started
+17:38:27.378 [34mINFO [0;39m [36mo.s.security.core.SpringSecurityCoreVersion.performVersionChecks:81[0;39m - You are running with Spring Security Core 5.1.1.RELEASE
+17:38:27.388 [34mINFO [0;39m [36mo.s.security.config.SecurityNamespaceHandler.<init>:78[0;39m - Spring Security 'config' module version is 5.1.1.RELEASE
+17:38:27.474 [34mINFO [0;39m [36mo.s.s.c.h.FilterInvocationSecurityMetadataSourceParser.parseInterceptUrlsForFilterInvocationRequestMap:194[0;39m - Creating access control expression attribute 'hasRole('ROLE_ADMIN')' for /rest/admin/**
+17:38:27.476 [34mINFO [0;39m [36mo.s.s.c.h.FilterInvocationSecurityMetadataSourceParser.parseInterceptUrlsForFilterInvocationRequestMap:194[0;39m - Creating access control expression attribute 'isAuthenticated()' for /**
+17:38:27.539 [34mINFO [0;39m [36mo.s.s.config.http.HttpSecurityBeanDefinitionParser.checkFilterChainOrder:307[0;39m - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, Root bean: class [org.springframework.security.web.header.HeaderWriterFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 500, Root bean: class [org.springframework.security.web.authentication.www.BasicAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1800, Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.security.config.http.HttpConfigurationBuilder$SecurityContextHolderAwareRequestFilterBeanFactory#0; factoryMethodName=getBean; initMethodName=null; destroyMethodName=null, order = 2000, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2300, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2500, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2600]
+17:38:27.555 [34mINFO [0;39m [36mo.s.s.c.h.FilterInvocationSecurityMetadataSourceParser.parseInterceptUrlsForFilterInvocationRequestMap:194[0;39m - Creating access control expression attribute 'permitAll()' for /login
+17:38:27.556 [34mINFO [0;39m [36mo.s.s.c.h.FilterInvocationSecurityMetadataSourceParser.parseInterceptUrlsForFilterInvocationRequestMap:194[0;39m - Creating access control expression attribute 'hasRole('ROLE_ADMIN')' for /**/admin/**
+17:38:27.556 [34mINFO [0;39m [36mo.s.s.c.h.FilterInvocationSecurityMetadataSourceParser.parseInterceptUrlsForFilterInvocationRequestMap:194[0;39m - Creating access control expression attribute 'isAuthenticated()' for /**
+17:38:27.575 [34mINFO [0;39m [36mo.s.s.config.http.HttpSecurityBeanDefinitionParser.checkFilterChainOrder:307[0;39m - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, Root bean: class [org.springframework.security.web.header.HeaderWriterFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 500, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 800, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1900, Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.security.config.http.HttpConfigurationBuilder$SecurityContextHolderAwareRequestFilterBeanFactory#1; factoryMethodName=getBean; initMethodName=null; destroyMethodName=null, order = 2000, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2300, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2400, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2500, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#1>, order = 2600]
+17:38:27.995 [34mINFO [0;39m [36mo.s.d.r.config.RepositoryConfigurationDelegate.registerRepositoriesIn:126[0;39m - Bootstrapping Spring Data repositories in DEFAULT mode.
+17:38:28.260 [34mINFO [0;39m [36mo.s.d.r.config.RepositoryConfigurationDelegate.registerRepositoriesIn:182[0;39m - Finished Spring Data repository scanning in 242ms. Found 5 repository interfaces.
+17:38:30.643 [34mINFO [0;39m [36morg.ehcache.core.EhcacheManager.createCache:297[0;39m - Cache 'users' created in EhcacheManager.
+17:38:30.697 [34mINFO [0;39m [36morg.ehcache.jsr107.Eh107CacheManager.registerObject:378[0;39m - Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./C./JAVA_PROJECTS/graduation2/target/tomcat.8080/webapps/expanded/WEB-INF/classes/cache/ehcache.xml,Cache=users
+17:38:30.758 [34mINFO [0;39m [36morg.ehcache.jsr107.Eh107CacheManager.registerObject:378[0;39m - Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=file./C./JAVA_PROJECTS/graduation2/target/tomcat.8080/webapps/expanded/WEB-INF/classes/cache/ehcache.xml,Cache=users
+17:38:31.118 [34mINFO [0;39m [36morg.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31[0;39m - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+17:38:31.337 [34mINFO [0;39m [36morg.hibernate.Version.logVersion:46[0;39m - HHH000412: Hibernate Core {5.3.7.Final}
+17:38:31.339 [34mINFO [0;39m [36morg.hibernate.cfg.Environment.<clinit>:213[0;39m - HHH000206: hibernate.properties not found
+17:38:31.852 [34mINFO [0;39m [36mo.h.a.common.reflection.java.JavaReflectionManager.<clinit>:49[0;39m - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+17:38:34.335 [34mINFO [0;39m [36morg.hibernate.dialect.Dialect.<init>:157[0;39m - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+17:38:36.087 [34mINFO [0;39m [36mo.h.engine.jdbc.env.internal.LobCreatorBuilderImpl.useContextualLobCreation:124[0;39m - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+17:38:36.102 [34mINFO [0;39m [36morg.hibernate.type.BasicTypeRegistry.register:159[0;39m - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@2bc7f48d
+17:38:37.000 [34mINFO [0;39m [36morg.hibernate.validator.internal.util.Version.<clinit>:21[0;39m - HV000001: Hibernate Validator 6.0.13.Final
+17:38:38.241 [31mWARN [0;39m [36mo.h.cache.jcache.internal.JCacheRegionFactory.createCache:107[0;39m - HHH90001006: Missing cache[com.voting.model.User] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+17:38:38.255 [34mINFO [0;39m [36morg.ehcache.core.EhcacheManager.createCache:297[0;39m - Cache 'com.voting.model.User' created in EhcacheManager.
+17:38:38.264 [31mWARN [0;39m [36mo.h.cache.jcache.internal.JCacheRegionFactory.createCache:107[0;39m - HHH90001006: Missing cache[com.voting.model.User.roles] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+17:38:38.268 [34mINFO [0;39m [36morg.ehcache.core.EhcacheManager.createCache:297[0;39m - Cache 'com.voting.model.User.roles' created in EhcacheManager.
+17:38:39.288 [34mINFO [0;39m [36mo.h.hql.internal.QueryTranslatorFactoryInitiator.initiateService:47[0;39m - HHH000397: Using ASTQueryTranslatorFactory
+17:38:39.652 [34mINFO [0;39m [36mo.s.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory:415[0;39m - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:38:39.725 [34mINFO [0;39m [36mo.s.security.web.DefaultSecurityFilterChain.<init>:43[0;39m - Creating filter chain: Ant [pattern='/resources/**'], []
+17:38:39.727 [34mINFO [0;39m [36mo.s.security.web.DefaultSecurityFilterChain.<init>:43[0;39m - Creating filter chain: Ant [pattern='/webjars/**'], []
+17:38:41.256 [34mINFO [0;39m [36mo.s.security.web.DefaultSecurityFilterChain.<init>:43[0;39m - Creating filter chain: Ant [pattern='/rest/**'], [org.springframework.security.web.context.SecurityContextPersistenceFilter@3ce820c4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fdd7085, org.springframework.security.web.header.HeaderWriterFilter@5486bda, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@c9ce647, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@53142bd7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10a4570a, org.springframework.security.web.access.ExceptionTranslationFilter@7d2edd41, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4dc96071]
+17:38:41.402 [34mINFO [0;39m [36mo.s.security.web.DefaultSecurityFilterChain.<init>:43[0;39m - Creating filter chain: any request, [org.springframework.security.web.context.SecurityContextPersistenceFilter@7eafc362, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@648cfca5, org.springframework.security.web.header.HeaderWriterFilter@21aab942, org.springframework.security.web.authentication.logout.LogoutFilter@3f6be18d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@29e954ad, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@79cbbf19, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@b159e06, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@73e6d0e8, org.springframework.security.web.session.SessionManagementFilter@3bbfaec8, org.springframework.security.web.access.ExceptionTranslationFilter@781d9257, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@24c08b5d]
+17:38:41.433 [34mINFO [0;39m [36mo.s.s.config.http.DefaultFilterChainValidator.checkLoginPageIsntProtected:154[0;39m - Checking whether login URL '/login' is accessible with your configuration
+17:38:42.051 [34mINFO [0;39m [36morg.springframework.web.context.ContextLoader.initWebApplicationContext:306[0;39m - Root WebApplicationContext initialized in 15257 ms
+17:38:42.272 [34mINFO [0;39m [36morg.springframework.web.servlet.FrameworkServlet.initServletBean:521[0;39m - Initializing Servlet 'mvc-dispatcher'
+17:38:44.180 [34mINFO [0;39m [36morg.springframework.web.servlet.FrameworkServlet.initServletBean:543[0;39m - Completed initialization in 1907 ms
+17:44:26.601 [31mWARN [0;39m [36morg.springframework.web.servlet.DispatcherServlet.noHandlerFound:1248[0;39m - No mapping for GET /voting/ajax/
+17:44:49.729 [31mWARN [0;39m [36morg.springframework.web.servlet.DispatcherServlet.noHandlerFound:1248[0;39m - No mapping for GET /voting/ajax/voting/
+Завершить выполнение пакетного файла [Y(да)/N(нет)]? 
