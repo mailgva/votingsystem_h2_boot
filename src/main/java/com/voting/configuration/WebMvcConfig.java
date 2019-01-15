@@ -43,10 +43,8 @@ import java.util.Locale;
 @ComponentScan("com.voting.web")
 public class WebMvcConfig implements WebMvcConfigurer {
 
-
     @Autowired
     private ApplicationContext context;
-
 
 
     @Override
@@ -55,10 +53,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         configurer.enable();
     }
 
-
     @Override
-    public void configureMessageConverters(
-            List<HttpMessageConverter<?>> converters) {
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
         converter.setObjectMapper(JacksonObjectMapper.getMapper());
         converter.setSupportedMediaTypes(
@@ -98,8 +94,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         final String IMAGES_PATH = "file:///" + System.getenv("VOTING_ROOT").replace("\\","/") + "/images/";
-        registry
-                .addResourceHandler("/resources/**")
+        registry.addResourceHandler("/resources/**")
                 .addResourceLocations("/resources/")
                 .addResourceLocations("/webjars/","classpath:/META-INF/resources/webjars/");
 

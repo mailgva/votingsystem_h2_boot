@@ -76,8 +76,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/rest/profile/register").anonymous();
-                //.anyRequest().authenticated().and().csrf().disable();
-
     }
 
     @Bean
