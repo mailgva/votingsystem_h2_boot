@@ -5,6 +5,8 @@ import com.voting.web.converter.DateTimeFormatters;
 import com.voting.web.converter.IdToRestoConverter;
 import com.voting.web.json.JacksonObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.embedded.jetty.JettyServletWebServerFactory;
+import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.cache.jcache.JCacheManagerFactoryBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
@@ -15,6 +17,7 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.data.repository.support.DomainClassConverter;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -71,23 +74,21 @@ public class WebMvcConfig implements WebMvcConfigurer {
         resolvers.add(new AuthenticationPrincipalArgumentResolver());
     }
 
-    @Override
-    public void addFormatters(FormatterRegistry registry) {
-        registry.addFormatter(new DateTimeFormatters.LocalTimeFormatter());
-        registry.addFormatter(new DateTimeFormatters.LocalDateFormatter());
-        registry.addFormatter(new DateTimeFormatters.LocalDateTimeFormatter());
+    @Bean
+    public FormattingConversionService conversionService() {
+        DefaultFormattingConversionService conversionService = new DefaultFormattingConversionService(false);
+        conversionService.addConverter(new IdToRestoConverter());
 
-        registry.addConverter(new IdToRestoConverter());
+        conversionService.addFormatter(new DateTimeFormatters.LocalTimeFormatter());
+        conversionService.addFormatter(new DateTimeFormatters.LocalDateFormatter());
+        conversionService.addFormatter(new DateTimeFormatters.LocalDateTimeFormatter());
 
-        if (!(registry instanceof FormattingConversionService)) {
-            return;
-        }
+        return conversionService;
+    }
 
-        FormattingConversionService conversionService = (FormattingConversionService) registry;
-
-        DomainClassConverter<FormattingConversionService> converter = new DomainClassConverter<>(conversionService);
-        converter.setApplicationContext(this.context);
-
+    @Bean
+    public IdToRestoConverter idToRestoConverter() {
+        return new IdToRestoConverter();
     }
 
 
@@ -163,5 +164,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return jCacheCacheManager;
     }
 
+
+
+    // Configuring Jetty web server
+    /*@Bean
+    public ConfigurableServletWebServerFactory webServerFactory()
+    {
+        JettyServletWebServerFactory factory = new JettyServletWebServerFactory();
+        factory.setPort(8081);
+        factory.setContextPath("/voting");
+        return factory;
+    }*/
 
 }

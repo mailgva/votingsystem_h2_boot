@@ -4,6 +4,7 @@ import com.voting.model.Resto;
 import com.voting.model.User;
 import com.voting.model.Vote;
 import com.voting.service.DailyMenuService;
+import com.voting.service.RestoService;
 import com.voting.service.UserService;
 import com.voting.service.VoteService;
 import com.voting.to.DailyMenuTo;
@@ -27,6 +28,9 @@ public abstract class AbstractVotingController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private RestoService restoService;
+
     public List<DailyMenuTo> getDailyMenu(Date date) {
         int userId = SecurityUtil.authUserId();
         Vote vote = voteService.getByDate(date, userId);
@@ -37,7 +41,11 @@ public abstract class AbstractVotingController {
         return DailyMenuUtil.convertToDailyMenuTo(date, dailyMenuService.getByDate(date), vote);
     }
 
-    public void setUserVote(Date date, Resto resto)  {
+    public void setUserVote(Date date, int id) {
+        setUserVote(date, restoService.get(id));
+    }
+
+    public void setUserVote(Date date, Resto resto) {
         int userId = SecurityUtil.authUserId();
         Vote vote   = voteService.getByDate(date, userId);
         User user   = userService.get(userId);

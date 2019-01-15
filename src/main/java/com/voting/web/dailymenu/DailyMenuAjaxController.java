@@ -1,4 +1,4 @@
-package com.voting.web.dailyMenu;
+package com.voting.web.dailymenu;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;

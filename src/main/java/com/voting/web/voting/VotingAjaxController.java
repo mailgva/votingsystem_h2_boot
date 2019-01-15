@@ -22,8 +22,10 @@ public class VotingAjaxController extends AbstractVotingController {
 
     @PostMapping
     public void setVote(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") Date date,
-                                          @RequestParam(value = "restoId") Resto resto ) {
+                                          @RequestParam(value = "restoId") /*int restoId*/ Resto resto ) {
+
         super.setUserVote(date, resto);
+        //super.setUserVote(date, restoId);
     }
 
 

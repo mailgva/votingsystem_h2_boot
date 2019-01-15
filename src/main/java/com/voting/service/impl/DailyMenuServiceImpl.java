@@ -30,14 +30,14 @@ public class DailyMenuServiceImpl implements DailyMenuService {
     @CacheEvict(value = "daily_menu", allEntries = true)
     @Override
     public DailyMenu create(DailyMenu dailyMenu) {
-        Assert.notNull(dailyMenu, "dailyMenu must not be null");
+        Assert.notNull(dailyMenu, "dailymenu must not be null");
         return repository.save(dailyMenu);
     }
 
     @CacheEvict(value = "daily_menu", allEntries = true)
     @Override
     public void update(DailyMenu dailyMenu) {
-        Assert.notNull(dailyMenu, "dailyMenu must not be null");
+        Assert.notNull(dailyMenu, "dailymenu must not be null");
         checkNotFoundWithId(repository.save(dailyMenu), dailyMenu.getId());
     }
 

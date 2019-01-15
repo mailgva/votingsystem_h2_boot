@@ -1,4 +1,4 @@
-package com.voting.web.dailyMenu;
+package com.voting.web.dailymenu;
 
 import com.voting.View;
 import com.voting.model.DailyMenu;

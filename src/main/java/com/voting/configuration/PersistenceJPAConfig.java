@@ -49,8 +49,6 @@ public class PersistenceJPAConfig {
 
         entityManagerFactory.setPackagesToScan("com.voting.model");
 
-
-
         // Vendor adapter
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         entityManagerFactory.setJpaVendorAdapter(vendorAdapter);

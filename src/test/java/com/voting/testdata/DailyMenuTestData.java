@@ -18,7 +18,7 @@ public class DailyMenuTestData {
 
     public static int dailyMenuId = START_SEQ + 2 + 5 + 30; // 2 - users, 5 - restaurants, 30 - dishes
 
-    public static int dailyMenuDishId = START_SEQ + 2 + 5 + 30 + 9; // 2 - users, 5 - restaurants, 30 - dishes, 9 - dailyMenu
+    public static int dailyMenuDishId = START_SEQ + 2 + 5 + 30 + 9; // 2 - users, 5 - restaurants, 30 - dishes, 9 - dailymenu
 
     private static final List<DailyMenuDish> DAILY_MENU_DISHES1 = List.of(
             new DailyMenuDish(dailyMenuDishId++, TestUtil.getByName(DishTestData.dishes, "Салат Оливье")),

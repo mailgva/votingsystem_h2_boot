@@ -86,7 +86,7 @@ public class DailyMenuServiceTest extends AbstractServiceTest{
         service.update(dailyMenu);
         DailyMenu dmUpdated = service.get(100040);
         assertEquals(dailyMenu.getDmDishes().size(), dmUpdated.getDmDishes().size());
-        //assertThat(dmUpdated).isEqualToComparingFieldByField(dailyMenu);
+        //assertThat(dmUpdated).isEqualToComparingFieldByField(dailymenu);
     }
 
     @Test

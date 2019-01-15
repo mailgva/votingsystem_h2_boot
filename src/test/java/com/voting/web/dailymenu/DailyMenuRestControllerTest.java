@@ -1,21 +1,11 @@
-package com.voting.web.dailyMenu;
+package com.voting.web.dailymenu;
 
 import com.voting.TestUtil;
 import com.voting.model.DailyMenu;
-import com.voting.testdata.DailyMenuTestData;
 import com.voting.web.AbstractControllerTest;
-import com.voting.web.json.JsonUtil;
-import com.voting.web.vote.AbstractVoteController;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
-import java.text.ParseException;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 import static com.voting.TestUtil.userHttpBasic;
 import static com.voting.testdata.DailyMenuTestData.DAILY_MENUS;

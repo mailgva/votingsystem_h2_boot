@@ -39,7 +39,7 @@ public class DailyMenuDish extends AbstractBaseEntity {
     @Override
     public String toString() {
         return "DailyMenuDish{" +
-                //"dailyMenu=" + dailyMenu +
+                //"dailymenu=" + dailymenu +
                 ", dish=" + dish +
                 ", id=" + id +
                 '}';
