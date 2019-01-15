@@ -7,8 +7,8 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
-
 <!--
+
     <bean class="com.voting.web.json.JacksonObjectMapper" id="objectMapper" factory-method="getMapper"/>
 
     <security:global-method-security secured-annotations="enabled" pre-post-annotations="enabled"/>
@@ -68,7 +68,7 @@
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
           p:cacheSeconds="5"
           p:defaultEncoding="UTF-8">
-          &lt;!&ndash;p:basenames="config.messages"&ndash;&gt;
+
         <property name="basenames" value="file:///#{systemEnvironment['VOTING_ROOT']}/config/messages/app"/>
         <property name="fallbackToSystemLocale" value="false"/>
     </bean>
@@ -90,7 +90,10 @@
 
         &lt;!&ndash; one of the properties available; the maximum file size in bytes &ndash;&gt;
         <property name="maxUploadSize" value="5242880"/>
-    </bean>-->
+    </bean>
+
+-->
+
 
 
 </beans>

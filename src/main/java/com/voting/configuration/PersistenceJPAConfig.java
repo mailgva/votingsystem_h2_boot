@@ -33,8 +33,6 @@ import java.util.Properties;
 @EnableJpaRepositories(basePackages = "com.voting.repository")
 @EnableTransactionManagement
 public class PersistenceJPAConfig {
-    /*@Autowired
-    private Environment env;*/
 
     @Autowired
     private DataSource dataSource;
@@ -63,9 +61,7 @@ public class PersistenceJPAConfig {
         additionalProperties.put("hibernate.show_sql", "true" /* "${show-sql}"*/);
         //additionalProperties.put("hibernate.hbm2ddl.auto","hbm2ddl.auto" /*"${hbm2ddl.auto}"*/);
 
-        System.out.println("==============================");
-        additionalProperties.entrySet().forEach(es -> System.out.println(es.getKey() + "=" + es.getValue()));
-        System.out.println("==============================");
+
 
         entityManagerFactory.setJpaProperties(additionalProperties);
 

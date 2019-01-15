@@ -28,8 +28,11 @@
 
 
     <!-- Spring MVC -->
-    <listener>
+    <!--<listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>-->
+    <listener>
+        <listener-class>org.springframework.boot.legacy.context.web.SpringBootContextLoaderListener</listener-class>
     </listener>
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>

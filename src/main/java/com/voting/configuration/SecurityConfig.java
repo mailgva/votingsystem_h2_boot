@@ -6,12 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -27,6 +30,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserServiceImpl userService;
 
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring()
+                .antMatchers("/resources/**","/webjars/**");
+    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
@@ -40,40 +50,34 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return authProvider;
     }
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.
-                authorizeRequests()
-                .antMatchers("/**").authenticated()
+        http.authorizeRequests()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/register").anonymous()
-                .antMatchers("/**/admin/**").hasAuthority("ROLE_ADMIN").anyRequest()
-                .authenticated().and().csrf().disable().formLogin()
-                .loginPage("/login").failureUrl("/login?error=true")
+                .antMatchers("/**/admin/**").hasRole("ADMIN")
+                .antMatchers("/**").authenticated();
+
+
+        http.authorizeRequests()
+                .anyRequest()
+                .authenticated().and().formLogin()//csrf().disable().
+                .loginPage("/login").defaultSuccessUrl("/voting")
+                .failureUrl("/login?error=true")
                 .loginProcessingUrl("/spring_security_check")
-                .defaultSuccessUrl("/voting")
-                .usernameParameter("email")
-                .passwordParameter("password")
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login").and().exceptionHandling()
-                .accessDeniedPage("/access-denied");
+                .logoutSuccessUrl("/login").and().exceptionHandling();
 
 
-        http.
-                authorizeRequests()
-                .antMatchers("/rest/admin/**").hasAuthority("ROLE_ADMIN")
-                .antMatchers("/rest/profile/register").anonymous()
-                .anyRequest().authenticated().and().csrf().disable()
-                .httpBasic();
+        http.authorizeRequests()
+                .antMatchers("/rest/admin/**").hasRole("ADMIN").and().httpBasic();
 
-    }
+        http.authorizeRequests()
+                .antMatchers("/rest/profile/register").anonymous();
+                //.anyRequest().authenticated().and().csrf().disable();
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web
-                .ignoring()
-                .antMatchers("/resources/**", "/css/**", "/js/**", "/images/**");
     }
 
     @Bean

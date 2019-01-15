@@ -3,6 +3,7 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
     <!--<http pattern="/resources/**" security="none"/>
     <http pattern="/webjars/**" security="none"/>
 
@@ -26,6 +27,7 @@
         <form-login login-page="/login" default-target-url="/voting"
                     authentication-failure-url="/login?error=true"
                     login-processing-url="/spring_security_check"/>
+
         <logout logout-success-url="/login"/>
         &lt;!&ndash;<csrf disabled="true"/>&ndash;&gt;
     </http>

@@ -11,6 +11,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.data.repository.support.DomainClassConverter;
 import org.springframework.format.FormatterRegistry;
@@ -19,15 +20,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.security.web.method.annotation.AuthenticationPrincipalArgumentResolver;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -41,20 +43,31 @@ import java.util.Locale;
 @ComponentScan("com.voting.web")
 public class WebMvcConfig implements WebMvcConfigurer {
 
+
     @Autowired
     private ApplicationContext context;
+
+
+
+    @Override
+    public void configureDefaultServletHandling(
+            DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
+
 
     @Override
     public void configureMessageConverters(
             List<HttpMessageConverter<?>> converters) {
         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+        converter.setObjectMapper(JacksonObjectMapper.getMapper());
         converter.setSupportedMediaTypes(
                 Arrays.asList(
                         new MediaType("text", "plain", Charset.forName("UTF-8")),
-                        new MediaType("text", "html", Charset.forName("UTF-8"))
+                        new MediaType("text", "html", Charset.forName("UTF-8")),
+                        new MediaType("application", "json", Charset.forName("UTF-8"))
                         ));
         converters.add(converter);
-        //configureMessageConverters(converters);
     }
 
     @Override
@@ -82,14 +95,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }
 
 
-
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+        final String IMAGES_PATH = "file:///" + System.getenv("VOTING_ROOT").replace("\\","/") + "/images/";
         registry
                 .addResourceHandler("/resources/**")
-                .addResourceLocations("/resources/","classpath:/other-resources/")
-                .addResourceLocations("/webjars/","classpath:/META-INF/resources/webjars/")
-                .addResourceLocations("/pictures/**","file:///#{systemEnvironment['VOTING_ROOT']}/images/");
+                .addResourceLocations("/resources/")
+                .addResourceLocations("/webjars/","classpath:/META-INF/resources/webjars/");
+
+        registry.addResourceHandler("/pictures/**")
+                .addResourceLocations(IMAGES_PATH);
     }
 
     @Bean
@@ -97,12 +112,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return JacksonObjectMapper.getMapper();
     }
 
-    @Bean
-    public InternalResourceViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/jsp/");
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/WEB-INF/jsp/");
+        resolver.setSuffix(".jsp");
+        resolver.setViewClass(JstlView.class);
+        registry.viewResolver(resolver);
     }
 
     @Bean
@@ -113,28 +129,35 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return resolver;
     }
 
-    @Bean
-    public LocaleChangeInterceptor localeChangeInterceptor() {
-        LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
-        lci.setParamName("lang");
-        return lci;
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        LocaleChangeInterceptor localeInterceptor = new LocaleChangeInterceptor();
+        localeInterceptor.setParamName("lang");
+        registry.addInterceptor(localeInterceptor).addPathPatterns("/*");
     }
 
     @Bean
     public LocaleResolver localeResolver () {
         CookieLocaleResolver resolver = new CookieLocaleResolver();
-        resolver.setDefaultLocale(new Locale("ru", "RU"));
+        resolver.setDefaultLocale(new Locale("ru"));
         return resolver;
     }
 
-    @Bean
+    @Bean("messageSource")
     public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasenames("file:///#{systemEnvironment['VOTING_ROOT']}/config/messages/app");
+        messageSource.setBasename("messages/app");
         messageSource.setDefaultEncoding("UTF-8");
         messageSource.setCacheSeconds(5);
         messageSource.setFallbackToSystemLocale(false);
         return messageSource;
+    }
+
+    @Bean
+    public LocalValidatorFactoryBean getValidator() {
+        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
+        bean.setValidationMessageSource(messageSource());
+        return bean;
     }
 
     @Bean
@@ -144,4 +167,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
         jCacheCacheManager.setCacheManagerUri(uri);
         return jCacheCacheManager;
     }
+
+
 }

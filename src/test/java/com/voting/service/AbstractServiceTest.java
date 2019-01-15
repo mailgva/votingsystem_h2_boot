@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
         "classpath:spring/spring-app.xml",
         "classpath:spring/spring-db.xml"
 })
-@Sql(scripts = "classpath:db/data.sql", config = @SqlConfig(encoding = "UTF-8"))
+@Sql(scripts = "classpath:data.sql", config = @SqlConfig(encoding = "UTF-8"))
 @ExtendWith(TimingExtension.class)
 abstract class AbstractServiceTest {
     public final SimpleDateFormat SDF = new SimpleDateFormat("dd-MM-yyyy");
