@@ -5,6 +5,7 @@ import com.voting.service.UserService;
 import com.voting.util.exception.ErrorType;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cache.CacheManager;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
@@ -22,11 +23,12 @@ import java.util.TimeZone;
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
-@SpringJUnitWebConfig(locations = {
+/*@SpringJUnitWebConfig(locations = {
         "classpath:spring/spring-app.xml",
         "classpath:spring/spring-mvc.xml",
         "classpath:spring/spring-db.xml"
-})
+})*/
+@SpringBootTest
 @Transactional
 abstract public class AbstractControllerTest {
 

@@ -15,13 +15,14 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-@ComponentScan("com.voting.service.impl*")
+//@ComponentScan("com.voting.service.impl*")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -53,6 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
         http.authorizeRequests()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/register").anonymous()
@@ -72,10 +74,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
         http.authorizeRequests()
-                .antMatchers("/rest/admin/**").hasRole("ADMIN").and().httpBasic();
+                .antMatchers("/rest/admin/**").hasRole("ADMIN").and().httpBasic().and().csrf().disable();
 
         http.authorizeRequests()
-                .antMatchers("/rest/profile/register").anonymous();
+                .antMatchers("/rest/profile/register").anonymous().and().csrf().disable();
+
+
+
     }
 
     @Bean

@@ -5,18 +5,12 @@ import com.voting.web.converter.DateTimeFormatters;
 import com.voting.web.converter.IdToRestoConverter;
 import com.voting.web.json.JacksonObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.embedded.jetty.JettyServletWebServerFactory;
-import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
-import org.springframework.cache.jcache.JCacheManagerFactoryBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
-import org.springframework.data.repository.support.DomainClassConverter;
-import org.springframework.format.FormatterRegistry;
 import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
 import org.springframework.http.MediaType;
@@ -30,12 +24,9 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
@@ -43,7 +34,7 @@ import java.util.Locale;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan("com.voting.web")
+//@ComponentScan("com.voting.web")
 public class WebMvcConfig implements WebMvcConfigurer {
 
     @Autowired
@@ -155,15 +146,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
         bean.setValidationMessageSource(messageSource());
         return bean;
     }
-
-    @Bean
-    public JCacheManagerFactoryBean getSpringCacheManager() throws URISyntaxException {
-        JCacheManagerFactoryBean jCacheCacheManager = new JCacheManagerFactoryBean();
-        URI uri = new URI("classpath:cache/ehcache.xml");
-        jCacheCacheManager.setCacheManagerUri(uri);
-        return jCacheCacheManager;
-    }
-
 
 
     // Configuring Jetty web server
