@@ -4,7 +4,9 @@ import com.voting.TestUtil;
 import com.voting.model.Resto;
 import com.voting.testdata.RestoTestData;
 import com.voting.web.AbstractControllerTest;
+import com.voting.web.dish.DishRestController;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
@@ -13,7 +15,6 @@ import static com.voting.testdata.UserTestData.USER;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 
 class VotingRestControllerTest  extends AbstractControllerTest {
     private static final String REST_URL = VotingRestController.REST_URL + '/';

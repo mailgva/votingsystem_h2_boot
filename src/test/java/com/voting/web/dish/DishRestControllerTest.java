@@ -4,7 +4,9 @@ import com.voting.TestUtil;
 import com.voting.model.Dish;
 import com.voting.testdata.DishTestData;
 import com.voting.web.AbstractControllerTest;
+import com.voting.web.dailymenu.DailyMenuRestController;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
@@ -12,6 +14,8 @@ import static com.voting.TestUtil.userHttpBasic;
 import static com.voting.testdata.DishTestData.getDishMatcher;
 import static com.voting.testdata.UserTestData.*;
 import static com.voting.testdata.UserTestData.ADMIN;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
+import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;

@@ -2,12 +2,12 @@ package com.voting.web;
 
 import org.junit.jupiter.api.Test;
 
-
 import static com.voting.TestUtil.userAuth;
 import static com.voting.testdata.UserTestData.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
 
 class RootControllerTest extends AbstractControllerTest {
 
