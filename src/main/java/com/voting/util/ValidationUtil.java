@@ -10,6 +10,9 @@ import com.voting.util.exception.TooLateEcxeption;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Calendar;
 
 
@@ -24,22 +27,14 @@ public class ValidationUtil {
     }
 
     public static void checkTooLate(Vote vote) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); // HH:mm:ss
-
-        Calendar voteDate = Calendar.getInstance();
-        voteDate.setTime(vote.getDate());
-
-        Calendar limitDate = Calendar.getInstance();
-
         // если дата меньше сегодняшней
-        limitDate = setTimeTo(limitDate, 0,0,0,0);
-        if(voteDate.getTime().before(limitDate.getTime()))
-            throw new PastDateException(sdf.format(vote.getDate()) + " - Not allowed to choose a restaurant for the past date!");
+        if(vote.getDate().isBefore(LocalDate.now()))
+            throw new PastDateException("Not allowed to choose a restaurant for the past date!");
         // если сегодняшняя дата
-        if(voteDate.getTime().equals(limitDate.getTime())){
-            limitDate = setTimeTo(limitDate, 11,0,0,0);
-            if(Calendar.getInstance().getTime().after(limitDate.getTime()))
-                throw new TooLateEcxeption(sdf.format(vote.getDate()) + " - it's to late to select restaurant, already after 11:00 ");
+        LocalTime localTime = LocalTime.of(11, 0);
+        if(vote.getDate().equals(LocalDate.now())){
+            if(LocalDateTime.now().isAfter(LocalDateTime.of(LocalDate.now(), localTime)))
+                throw new TooLateEcxeption("It's to late to select restaurant, already after 11:00 ");
         }
     }
 

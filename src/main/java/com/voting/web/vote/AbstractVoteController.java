@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -36,14 +37,14 @@ public class AbstractVoteController {
         return service.getAll();
     }
 
-    public Vote getByDate(Date date) {
+    public Vote getByDate(LocalDate date) {
         int userId = SecurityUtil.authUserId();
         log.info("getByDate vote {} for user {}", date, userId);
         return service.getByDate(date, userId);
     }
 
 
-    public List<Vote> getByDateUsers(Date date) {
+    public List<Vote> getByDateUsers(LocalDate date) {
         int userId = SecurityUtil.authUserId();
         log.info("getByDate vote {} for all users", date);
         return service.getByDateUsers(date);

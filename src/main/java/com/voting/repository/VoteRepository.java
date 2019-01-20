@@ -2,6 +2,7 @@ package com.voting.repository;
 
 import com.voting.model.Vote;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -19,12 +20,9 @@ public interface VoteRepository {
     // ORDERED dateTime desc
     List<Vote> getAll();
 
-    // ORDERED dateTime desc
-    List<Vote> getBetween(LocalDateTime startDate, LocalDateTime endDate, int userId);
+    Vote getByDate(LocalDate date, int userId);
 
-    Vote getByDate(Date date, int userId);
-
-    List<Vote> getByDateUsers(Date date);
+    List<Vote> getByDateUsers(LocalDate date);
 
 
 }

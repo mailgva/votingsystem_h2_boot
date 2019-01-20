@@ -3,6 +3,7 @@ package com.voting.web.dailymenu;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @RestController
@@ -11,7 +12,7 @@ public class DailyMenuAjaxController extends AbstractDailyMenuController {
     static final String REST_URL = "/ajax/admin/dailymenu";
 
     @PostMapping
-    public void generateDailyMenu(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") Date date) {
+    public void generateDailyMenu(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate date) {
         super.generateDailyMenu(date);
     }
 }

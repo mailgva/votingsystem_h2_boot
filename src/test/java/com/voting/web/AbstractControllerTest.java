@@ -59,7 +59,7 @@ abstract public class AbstractControllerTest {
 
     @PostConstruct
     private void postConstruct() {
-        TimeZone.setDefault(TimeZone.getTimeZone("EET"));
+        
     }
 
     @BeforeEach

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -44,17 +45,13 @@ public class VoteRepositoryImpl implements VoteRepository {
     }
 
     @Override
-    public Vote getByDate(Date date, int userId) {
+    public Vote getByDate(LocalDate date, int userId) {
         return crudVoteRepository.getByDate(date, userId);
     }
 
     @Override
-    public List<Vote> getByDateUsers(Date date) {
+    public List<Vote> getByDateUsers(LocalDate date) {
         return crudVoteRepository.getAllByDate(date);
     }
 
-    @Override
-    public List<Vote> getBetween(LocalDateTime startDate, LocalDateTime endDate, int userId) {
-        return null;
-    }
 }

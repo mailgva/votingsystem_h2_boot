@@ -5,6 +5,7 @@ import com.voting.model.DailyMenu;
 import com.voting.model.DailyMenuDish;
 import org.springframework.test.web.servlet.ResultMatcher;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -14,7 +15,7 @@ import static com.voting.model.AbstractBaseEntity.START_SEQ;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DailyMenuTestData {
-    private static final Date TEST_DATE = new GregorianCalendar(2018, Calendar.NOVEMBER,21).getTime();
+    public static final LocalDate TEST_DATE = LocalDate.of(2018,11,21);
 
     public static int dailyMenuId = START_SEQ + 2 + 5 + 30; // 2 - users, 5 - restaurants, 30 - dishes
 

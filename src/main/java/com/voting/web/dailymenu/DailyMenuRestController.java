@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -61,13 +62,13 @@ public class DailyMenuRestController extends AbstractDailyMenuController {
 
     @Override
     @GetMapping(value = "/bydate/", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<DailyMenu> getByDate(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") Date date) {
+    public List<DailyMenu> getByDate(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate date) {
         return super.getByDate(date);
     }
 
     @Override
     @PostMapping(value = "/generate/")
-    public void generateDailyMenu(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") Date date) {
+    public void generateDailyMenu(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate date) {
         super.generateDailyMenu(date);
     }
 }

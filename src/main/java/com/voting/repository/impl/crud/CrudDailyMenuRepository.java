@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public interface CrudDailyMenuRepository extends JpaRepository<DailyMenu, Intege
     @Query("SELECT distinct dm FROM DailyMenu dm JOIN FETCH dm.resto LEFT JOIN FETCH dm.dmDishes WHERE dm.date=:date ORDER BY dm.resto.name ASC")
     /*@EntityGraph(attributePaths = {"dmDishes"}, type = EntityGraph.EntityGraphType.LOAD)
     @Query("SELECT dm FROM DailyMenu dm WHERE dm.date=:date ORDER BY dm.resto.name ASC")*/
-    List<DailyMenu> getByDate(@Param("date") Date date);
+    List<DailyMenu> getByDate(@Param("date") LocalDate date);
 
     DailyMenu findById(int id);
 
@@ -35,7 +36,7 @@ public interface CrudDailyMenuRepository extends JpaRepository<DailyMenu, Intege
 
     @Transactional
     @Procedure(name = DailyMenu.GENERATE_DAILY_MENU)
-    void generateDailyMenu(@Param("fromdate") Date fromdate, @Param("todate") Date todate);
+    void generateDailyMenu(@Param("fromdate") LocalDate fromdate, @Param("todate") LocalDate todate);
 
     /*@Transactional
     @Procedure(name = DailyMenu.GENERATE_STR_DAILY_MENU)
@@ -45,5 +46,5 @@ public interface CrudDailyMenuRepository extends JpaRepository<DailyMenu, Intege
     @Transactional
     @Modifying
     @Query("DELETE FROM DailyMenu dm WHERE dm.date=:date")
-    void deleteByDate(@Param("date") Date date);
+    void deleteByDate(@Param("date") LocalDate date);
 }

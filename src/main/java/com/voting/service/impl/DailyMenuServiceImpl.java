@@ -10,6 +10,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -52,15 +53,10 @@ public class DailyMenuServiceImpl implements DailyMenuService {
         return checkNotFoundWithId(repository.get(id), id);
     }
 
-    @Cacheable("daily_menu")
+    //@Cacheable("daily_menu")
     @Override
-    public Set<DailyMenu> getByDate(Date date) {
-        return new HashSet<>(repository.getByDate(date));
-    }
-
-    @Override
-    public List<DailyMenu> getByNameResto(String nameResto) {
-        return repository.getByNameResto(nameResto);
+    public List<DailyMenu> getByDate(LocalDate date) {
+        return repository.getByDate(date);
     }
 
     @Cacheable("daily_menu")
@@ -71,7 +67,7 @@ public class DailyMenuServiceImpl implements DailyMenuService {
 
     @CacheEvict(value = "daily_menu", allEntries = true)
     @Override
-    public void generateDailyMenu(Date date) {
+    public void generateDailyMenu(LocalDate date) {
         repository.deleteByDate(date);
         repository.generateDailyMenu(date);
     }

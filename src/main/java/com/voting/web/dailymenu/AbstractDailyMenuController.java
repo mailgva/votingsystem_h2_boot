@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -49,12 +50,12 @@ public abstract class AbstractDailyMenuController {
     }
 
 
-    public Set<DailyMenu> getByDate(Date date) {
+    public List<DailyMenu> getByDate(LocalDate date) {
         log.info("get DailyMenu for date {} ", date);
         return service.getByDate(date);
     }
 
-    public void generateDailyMenu(Date date) {
+    public void generateDailyMenu(LocalDate date) {
         service.generateDailyMenu(date);
     }
 

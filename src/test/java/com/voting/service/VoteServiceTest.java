@@ -21,6 +21,7 @@ import java.time.ZoneId;
 import java.util.Date;
 
 import static com.voting.testdata.UserTestData.*;
+import static com.voting.testdata.VoteTestData.TEST_DATE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -43,18 +44,17 @@ public class VoteServiceTest extends AbstractServiceTest{
     public void create() throws ParseException {
         User user = ADMIN;
         Resto resto = TestUtil.getByName(RestoTestData.restos, "Ресторан 2");
-        LocalDate ld = LocalDate.now().plusDays(1);
+        LocalDate localDate = LocalDate.now().plusDays(1);
 
-        Date date = Date.from(ld.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        Vote vote = new Vote(user, resto, date, LocalDateTime.now());
+        Vote vote = new Vote(user, resto, localDate, LocalDateTime.now());
         service.create(vote, user.getId());
     }
 
     @Test
     public void update() {
         assertThrows(PastDateException.class, () -> {
-            Date testDate_01_11_2018 = SDF.parse("01-11-2018");
-            Date testDate_02_11_2018 = SDF.parse("02-11-2018");
+            LocalDate testDate_01_11_2018 = LocalDate.of(2018, 11, 1);
+            LocalDate testDate_02_11_2018 = LocalDate.of(2018, 11, 2);
 
             User user = ADMIN;
             Resto resto = TestUtil.getByName(RestoTestData.restos, "Ресторан 2");
@@ -71,8 +71,7 @@ public class VoteServiceTest extends AbstractServiceTest{
 
     @Test
     public void get() throws ParseException {
-        Date date = SDF.parse("21-11-2018");
-        Vote actual = VoteTestData.getByDateUser(date, ADMIN);
+        Vote actual = VoteTestData.getByDateUser(TEST_DATE, ADMIN);
 
         Vote expected = service.get(actual.getId(), ADMIN_ID);
         assertThat(actual).isEqualToIgnoringGivenFields(expected, "user", "dateTime");
@@ -92,8 +91,7 @@ public class VoteServiceTest extends AbstractServiceTest{
 
     @Test
     public void getByDate() throws ParseException {
-        Date date = SDF.parse("21-11-2018");
-        Vote vote = service.getByDate(date, USER_ID);
+        Vote vote = service.getByDate(TEST_DATE, USER_ID);
         assertNotNull(vote);
         Resto resto = vote.getResto();
         assertEquals(resto, TestUtil.getByName(RestoTestData.restos, "Ресторан 1"));
@@ -106,11 +104,9 @@ public class VoteServiceTest extends AbstractServiceTest{
             User user = ADMIN;
             Resto resto = TestUtil.getByName(RestoTestData.restos, "Ресторан 2");
 
-            LocalDate ld = LocalDate.now().plusDays(10);
+            LocalDate localDate = LocalDate.now().plusDays(10);
 
-            Date date = Date.from(ld.atStartOfDay(ZoneId.systemDefault()).toInstant());
-
-            Vote vote = new Vote(user, resto, date, LocalDateTime.now());
+            Vote vote = new Vote(user, resto, localDate, LocalDateTime.now());
             Vote newVote = service.create(vote, ADMIN_ID);
 
             newVote.setResto(TestUtil.getByName(RestoTestData.restos, "Ресторан 3"));

@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -16,16 +17,14 @@ public class VotingAjaxController extends AbstractVotingController {
 
     @Override
     @GetMapping
-    public List<DailyMenuTo> getDailyMenu(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") Date date) {
+    public List<DailyMenuTo> getDailyMenu(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate date) {
         return super.getDailyMenu(date);
     }
 
     @PostMapping
-    public void setVote(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") Date date,
-                                          @RequestParam(value = "restoId") /*int restoId*/ Resto resto ) {
-
+    public void setVote(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate date,
+                                          @RequestParam(value = "restoId") Resto resto ) {
         super.setUserVote(date, resto);
-        //super.setUserVote(date, restoId);
     }
 
 

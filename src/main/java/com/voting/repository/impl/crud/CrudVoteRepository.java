@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public interface CrudVoteRepository extends JpaRepository<Vote, Integer> {
             "JOIN FETCH v.user WHERE v.date=:date and v.user.id=:userId")*/
     @EntityGraph(attributePaths = {"resto" , "user"})
     @Query("SELECT v FROM Vote v WHERE v.user.id=:userId AND v.date=:date")
-    Vote getByDate(@Param("date") Date date, @Param("userId") int userId);
+    Vote getByDate(@Param("date") LocalDate date, @Param("userId") int userId);
 
-    List<Vote> getAllByDate(@Param("date") Date date);
+    List<Vote> getAllByDate(@Param("date") LocalDate date);
 }

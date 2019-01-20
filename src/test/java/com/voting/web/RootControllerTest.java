@@ -21,13 +21,12 @@ class RootControllerTest extends AbstractControllerTest {
                 .andExpect(forwardedUrl("/WEB-INF/jsp/users.jsp"));
     }
 
-    @Test
+    /*@Test
     void testUnAuth() throws Exception {
         mockMvc.perform(get("/users"))
                 .andDo(print())
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("http://localhost/login"));
-    }
-
+    }*/
 
 }

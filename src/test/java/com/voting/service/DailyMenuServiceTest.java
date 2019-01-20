@@ -10,15 +10,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
+import static com.voting.testdata.DailyMenuTestData.TEST_DATE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -44,21 +42,18 @@ public class DailyMenuServiceTest extends AbstractServiceTest{
 
     @Test
     public void getByDate() throws ParseException {
-        Date date = SDF.parse("21-11-2018");
-        Set<DailyMenu> dm = service.getByDate(date);
+        List<DailyMenu> dm = service.getByDate(TEST_DATE);
         assertEquals(dm.size(), 3);
     }
 
     @Test
-    @Transactional(propagation = Propagation.NESTED)
+    @Transactional
     public void create() throws ParseException {
-        Date date = SDF.parse("21-11-2018");
         Resto resto = restoService.get(TestUtil.getByName(RestoTestData.restos, "Ресторан 4").getId());
 
         DailyMenu dm = new DailyMenu();
 
-        dm.setDate(date);
-
+        dm.setDate(TEST_DATE);
         dm.setResto(resto);
 
         DailyMenuDish dmd = new DailyMenuDish();
@@ -71,12 +66,12 @@ public class DailyMenuServiceTest extends AbstractServiceTest{
 
         service.create(dm);
 
-        Set<DailyMenu> dmSet = service.getByDate(date);
-        assertEquals(dmSet.size(), 4);
+        List<DailyMenu> dailyMenus = service.getByDate(TEST_DATE);
+        assertEquals(dailyMenus.size(), 4);
     }
 
     @Test
-    @Transactional(propagation = Propagation.NESTED)
+    @Transactional
     public void update() {
         DailyMenu dailyMenu = service.get(100040);
         dailyMenu.setResto(restoService.get(100005));
@@ -90,11 +85,10 @@ public class DailyMenuServiceTest extends AbstractServiceTest{
     }
 
     @Test
-    @Transactional(propagation = Propagation.NESTED)
+    @Transactional
     public void delete() throws ParseException {
-        Date date = SDF.parse("21-11-2018");
         service.delete(100039);
-        Set<DailyMenu> dmSet = service.getByDate(date);
+        List<DailyMenu> dmSet = service.getByDate(TEST_DATE);
         assertEquals(dmSet.size(), 2);
     }
 
@@ -102,6 +96,12 @@ public class DailyMenuServiceTest extends AbstractServiceTest{
     public void get() {
         DailyMenu dailyMenu = service.get(100038);
         assertEquals(dailyMenu.getResto(), TestUtil.getById(RestoTestData.restos, 100003));
+    }
+
+    @Test
+    public void getAll() {
+        List<DailyMenu> dailyMenus = service.getAll();
+        assertEquals(dailyMenus.size(), 9);
     }
 
 

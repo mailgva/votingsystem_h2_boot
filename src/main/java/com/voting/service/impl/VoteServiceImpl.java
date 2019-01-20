@@ -41,13 +41,6 @@ public class VoteServiceImpl implements VoteService {
         checkNotFoundWithId(repository.delete(id, userId), id);
     }
 
-    @Override
-    public List<Vote> getBetweenDateTimes(LocalDateTime startDateTime, LocalDateTime endDateTime, int userId) {
-        Assert.notNull(startDateTime, "startDateTime must not be null");
-        Assert.notNull(endDateTime, "endDateTime  must not be null");
-        return repository.getBetween(startDateTime, endDateTime, userId);
-    }
-
     @Cacheable("votes")
     @Override
     public List<Vote> getAll() {
@@ -70,17 +63,12 @@ public class VoteServiceImpl implements VoteService {
     }
 
     @Override
-    public List<Vote> getBetweenDates(LocalDate startDate, LocalDate endDate, int userId) {
-        return null; // repository.getBetween(startDate,endDate,userId);
-    }
-
-    @Override
-    public Vote getByDate(Date date, int userId) {
+    public Vote getByDate(LocalDate date, int userId) {
         return repository.getByDate(date, userId);
     }
 
     @Override
-    public List<Vote> getByDateUsers(Date date) {
+    public List<Vote> getByDateUsers(LocalDate date) {
         return repository.getByDateUsers(date);
     }
 }

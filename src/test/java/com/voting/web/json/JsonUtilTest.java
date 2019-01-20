@@ -1,25 +1,36 @@
 package com.voting.web.json;
 
+import com.voting.TestUtil;
+import com.voting.model.Dish;
+import com.voting.model.User;
+import com.voting.testdata.DishTestData;
+import com.voting.testdata.UserTestData;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
+import static com.voting.testdata.DishTestData.assertMatch;
+import static com.voting.testdata.UserTestData.ADMIN;
+import static com.voting.testdata.UserTestData.USER;
 import static org.junit.jupiter.api.Assertions.*;
 
 class JsonUtilTest {
-    /*
     @Test
     void testReadWriteValue() throws Exception {
-        String json = JsonUtil.writeValue(ADMIN_MEAL1);
+        Dish testDish = TestUtil.getByName(DishTestData.dishes, "Салат Оливье");
+        String json = JsonUtil.writeValue(testDish);
         System.out.println(json);
-        Meal meal = JsonUtil.readValue(json, Meal.class);
-        assertMatch(meal, ADMIN_MEAL1);
+        Dish dish = JsonUtil.readValue(json, Dish.class);
+        assertMatch(dish, testDish);
     }
 
     @Test
     void testReadWriteValues() throws Exception {
-        String json = JsonUtil.writeValue(MEALS);
+        List<User> usersTest = List.of(USER, ADMIN);
+        String json = JsonUtil.writeValue(usersTest);
         System.out.println(json);
-        List<Meal> meals = JsonUtil.readValues(json, Meal.class);
-        assertMatch(meals, MEALS);
-    }*/
+        List<User> users = JsonUtil.readValues(json, User.class);
+        UserTestData.assertMatch(users, usersTest);
+    }
 
 }

@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.time.LocalDate;
 import java.util.Date;
 
 @XmlRootElement
@@ -15,13 +16,13 @@ import java.util.Date;
 @Data
 public class DailyMenuTo{
     @JsonFormat(pattern="yyyy-MM-dd")
-    private Date date;
+    private LocalDate date;
 
     private int voteId;
     private Resto resto;
     private boolean selected;
 
-    public DailyMenuTo(Date date, Resto resto, int voteId, boolean selected) {
+    public DailyMenuTo(LocalDate date, Resto resto, int voteId, boolean selected) {
         this.voteId = voteId;
         this.date = date;
         this.resto = resto;

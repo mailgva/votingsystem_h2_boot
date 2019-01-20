@@ -13,7 +13,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Repository
 @Transactional(readOnly = true)
@@ -47,7 +49,7 @@ public class DailyMenuRepositoryImpl implements DailyMenuRepository {
     }
 
     @Override
-    public List<DailyMenu> getByDate(Date date) {
+    public List<DailyMenu> getByDate(LocalDate date) {
         return crudDailyMenuRepository.getByDate(date);
     }
 
@@ -63,13 +65,13 @@ public class DailyMenuRepositoryImpl implements DailyMenuRepository {
 
     @Override
     @Transactional
-    public void deleteByDate(Date date) {
+    public void deleteByDate(LocalDate date) {
         crudDailyMenuRepository.deleteByDate(date);
     }
 
     @Override
     @Transactional
-    public void generateDailyMenu(Date date) {
+    public void generateDailyMenu(LocalDate date) {
         //crudDailyMenuRepository.generateDailyMenu(date, date);
         List<Resto> restos = crudRestoRepository.getAll();
 

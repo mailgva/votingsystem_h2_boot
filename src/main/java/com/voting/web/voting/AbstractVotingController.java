@@ -12,6 +12,7 @@ import com.voting.util.DailyMenuUtil;
 import com.voting.web.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
@@ -31,21 +32,18 @@ public abstract class AbstractVotingController {
     @Autowired
     private RestoService restoService;
 
-    public List<DailyMenuTo> getDailyMenu(Date date) {
+    public List<DailyMenuTo> getDailyMenu(LocalDate date) {
         int userId = SecurityUtil.authUserId();
         Vote vote = voteService.getByDate(date, userId);
         return getDailyMenuTo(date, vote);
     }
 
-    protected List<DailyMenuTo> getDailyMenuTo(Date date, Vote vote) {
+    protected List<DailyMenuTo> getDailyMenuTo(LocalDate date, Vote vote) {
         return DailyMenuUtil.convertToDailyMenuTo(date, dailyMenuService.getByDate(date), vote);
     }
 
-    public void setUserVote(Date date, int id) {
-        setUserVote(date, restoService.get(id));
-    }
 
-    public void setUserVote(Date date, Resto resto) {
+    public void setUserVote(LocalDate date, Resto resto) {
         int userId = SecurityUtil.authUserId();
         Vote vote   = voteService.getByDate(date, userId);
         User user   = userService.get(userId);

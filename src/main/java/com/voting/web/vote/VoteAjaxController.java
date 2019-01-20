@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class VoteAjaxController extends AbstractVoteController {
 
     @Override
     @GetMapping(value = "/bydate/", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Vote> getByDateUsers(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") Date date) {
+    public List<Vote> getByDateUsers(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate date) {
         return super.getByDateUsers(date);
     }
 

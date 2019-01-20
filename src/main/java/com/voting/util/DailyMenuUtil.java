@@ -3,6 +3,7 @@ package com.voting.util;
 import com.voting.model.*;
 import com.voting.to.DailyMenuTo;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -11,7 +12,7 @@ public class DailyMenuUtil {
 
     private DailyMenuUtil(){}
 
-    public static List<DailyMenuTo> convertToDailyMenuTo(Date date, Set<DailyMenu> dailyMenus, Vote vote) {
+    public static List<DailyMenuTo> convertToDailyMenuTo(LocalDate date, List<DailyMenu> dailyMenus, Vote vote) {
         Map<Resto, List<Dish>> map = dailyMenus.stream()
                 .collect(Collectors.toMap(DailyMenu::getResto, DailyMenu::getDishes)
                 );

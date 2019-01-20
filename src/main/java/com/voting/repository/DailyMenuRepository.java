@@ -2,6 +2,7 @@ package com.voting.repository;
 
 import com.voting.model.DailyMenu;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -15,13 +16,13 @@ public interface DailyMenuRepository {
     DailyMenu get(int id);
 
     // null if not found
-    List<DailyMenu> getByDate(Date date);
+    List<DailyMenu> getByDate(LocalDate date);
 
     List<DailyMenu> getByNameResto(String nameResto);
 
     List<DailyMenu> getAll();
 
-    void deleteByDate(Date date);
+    void deleteByDate(LocalDate date);
 
-    void generateDailyMenu(Date date);
+    void generateDailyMenu(LocalDate date);
 }
