@@ -15,6 +15,6 @@
     var dataTablesLang = {
         "search"      : i18n["common.dataTable.search"],
         "emptyTable"  : i18n["common.dataTable.noDataAvalaible"],
-        "infoEmpty"  : i18n["common.dataTable.infoEmpty"],
+        "infoEmpty"   : i18n["common.dataTable.infoEmpty"],
         "info"        : i18n["common.dataTable.info"]};
 </script>

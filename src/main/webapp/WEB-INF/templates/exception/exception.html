@@ -1,0 +1,20 @@
+<html lang="en" th:attr="lang=${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/headTag :: head">
+</head>
+<body>
+<div th:replace="fragments/bodyHeader :: nav"></div>
+<div class="jumbotron">
+    <div class="container text-center">
+        <br>
+        <h2 th:text="${typeMessage}"></h2>
+        <h3 th:text="${message}"></h3>
+    </div>
+</div>
+<!--
+<c:forEach items="${exception.stackTrace}" var="stackTrace">
+    ${stackTrace}
+</c:forEach>
+-->
+<div th:insert="fragments/footer :: footer"></div>
+</body>
+</html>

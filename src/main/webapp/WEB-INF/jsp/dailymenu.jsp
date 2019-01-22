@@ -20,11 +20,9 @@
                         <dt><spring:message code="common.date"/>:</dt>
                         <dd><input type="date" name="date" value="${(param.date != null ? param.date : date)}"
                                    onchange="updateFace();">
-                            <%--<c:if test = "${isAdmin}">--%>
                             <sec:authorize access="hasRole('ROLE_ADMIN')">
                                 <button type="button" onclick="generateDailyMenu()"><spring:message code="common.generateDailyMenu"/></button>
                             </sec:authorize>
-                            <%--</c:if>--%>
 
                         </dd>
                     </dl>

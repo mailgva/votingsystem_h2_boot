@@ -57,6 +57,8 @@
         <webjars-noty.version>3.1.4</webjars-noty.version>
         <webjars-datatables.version>1.10.19</webjars-datatables.version>
 
+        <thymeleafspringsecurity5.version>3.0.3.RELEASE</thymeleafspringsecurity5.version>
+
     </properties>
 
     <build>
@@ -154,6 +156,16 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+            <version>${thymeleafspringsecurity5.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <!--<dependency>

@@ -18,6 +18,11 @@ public class VotingApplication extends SpringBootServletInitializer {
 	}
 
 	public static void main(String[] args) throws Exception {
+		if(! System.getenv().containsKey("VOTING_ROOT")) {
+			System.out.println("ERROR!!! \nNEEDED ENVIRONMENT VARIABLE 'VOTING_ROOT' IS NOT EXIST!!!");
+			return;
+		}
+
 		SpringApplication.run(VotingApplication.class, args);
 	}
 

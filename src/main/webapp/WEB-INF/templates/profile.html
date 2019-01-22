@@ -1,0 +1,50 @@
+<html lang="en" th:attr="lang=${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/headTag :: head">
+</head>
+<body>
+<div th:replace="fragments/bodyHeader :: nav"></div>
+<div class="jumbotron pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-5 offset-3">
+                <h3 th:text="${register}? #{app.register} : ${userTo.name} + ' ' + #{app.profile}"></h3>
+                <form class="form-group" th:object="${userTo}" method="post" action="#"
+                      th:action="@{${register} ? 'register' : 'profile'}"
+                        charset="utf-8" accept-charset="UTF-8">
+
+                    <div class="form-group ">
+                        <label class="col-form-label" th:text="#{user.name}"></label>
+                        <input id="name" name="name" class="form-control is-invalid" type="text" th:field="*{name}" />
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label class="col-form-label" th:text="#{user.email}"></label>
+                        <input id="email" name="email" class="form-control is-invalid" type="text" th:field="*{email}"/>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label class="col-form-label" th:text="#{user.password}"></label>
+                        <input id="password" name="password" class="form-control is-invalid" type="password" th:field="*{password}"/>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                    </div>
+
+                    <div class="text-right">
+                        <a class="btn btn-secondary" href="#" onclick="window.history.back()">
+                            <span class="fa fa-close"></span>
+                            <span th:text="#{common.cancel}"></span>
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <span class="fa fa-check"></span>
+                            <span th:text="#{common.save}"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="fragments/footer :: footer"></div>
+</body>
+</html>

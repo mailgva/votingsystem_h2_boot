@@ -1,0 +1,36 @@
+<html lang="en" th:attr="lang=${#locale.language}" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+<head th:replace="fragments/headTag :: head">
+</head>
+<body>
+<div th:replace="fragments/bodyHeader :: nav"></div>
+<script type="text/javascript" src="resources/js/voting.common.js" defer></script>
+<script type="text/javascript" src="resources/js/voting.dailymenu.js" defer></script>
+<div class="jumbotron pt-4">
+    <div class="container">
+        <h3 th:text="#{menu.voting}"></h3>
+        <div class="card border-dark">
+            <div class="card-body pb-0">
+                <form id="filter">
+                <dl>
+                    <dt th:text="#{common.date}"></dt>
+                    <dd><input type="date" name="date" th:attr="value=${date}"
+                               onchange="updateFace();">
+                         <button sec:authorize="hasRole('ROLE_ADMIN')" type="button" onclick="generateDailyMenu()"><span th:text="#{common.generateDailyMenu}"></span></button>
+                    </dd>
+                </dl>
+                </form>
+            </div>
+        </div>
+        </br>
+        <form method="post" action="voting/vote" id="voteForm">
+        </form>
+    </div>
+</div>
+<div th:insert="fragments/footer :: footer"></div>
+</body>
+<script th:utext="${localeMessages}">
+</script>
+<script th:replace="fragments/i18n :: script">
+</script>
+</html>
