@@ -1,10 +1,13 @@
 package com.voting.web.interceptor;
 
+import com.voting.web.SecurityUtil;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -16,7 +19,11 @@ public class ModelInterceptor extends HandlerInterceptorAdapter {
         if (modelAndView != null && !modelAndView.isEmpty()) {
             modelAndView.getModelMap().addAttribute("localeMessages", createLocalMessages(request));
             modelAndView.getModelMap().addAttribute("request_uri", request.getRequestURL());
-
+            modelAndView.getModelMap().addAttribute("date", LocalDate.now().plusDays((LocalDateTime.now().getHour() < 11 ? 0 : 1)).toString());
+            try{
+                modelAndView.getModelMap().addAttribute("isAdmin", SecurityUtil.isAdmin());
+                modelAndView.getModelMap().addAttribute("userName", SecurityUtil.authUserName());
+            } catch (Exception e) {}
         }
     }
 

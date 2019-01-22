@@ -43,7 +43,6 @@ public class RootController extends AbstractUserController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/users")
     public String users(Model model) {
-        model = setModelAttrs(model);
         return "users";
     }
 
@@ -54,30 +53,24 @@ public class RootController extends AbstractUserController {
 
     @GetMapping("/voting")
     public String voting(Model model) {
-        model.addAttribute("date", LocalDate.now().plusDays((LocalDateTime.now().getHour() < 11 ? 0 : 1)).toString());
-        model = setModelAttrs(model);
         return "dailymenu";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/votes")
     public String votes(Model model) {
-        model.addAttribute("date", LocalDate.now().toString());
-        model = setModelAttrs(model);
         return "votes";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/dishes")
     public String dishes(Model model) {
-        model = setModelAttrs(model);
         return "dishes";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/restaurants")
     public String restaurants(Model model) {
-        model = setModelAttrs(model);
         return "restaurants";
     }
 
@@ -127,45 +120,5 @@ public class RootController extends AbstractUserController {
         }
     }
 
-    private Model setModelAttrs(Model m) {
-        m.addAttribute("isAdmin", SecurityUtil.isAdmin());
-        m.addAttribute("userName", SecurityUtil.authUserName());
-        return m;
-    }
-
-
-    /*@GetMapping("/upload")
-    public String index() {
-        return "upload";
-    }
-
-    @PostMapping("/upload") //new annotation since 4.3
-    public String singleFileUpload(@RequestParam("file") MultipartFile file,
-                                   RedirectAttributes redirectAttributes)  {
-
-        if (file.isEmpty()) {
-            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-            return "redirect:uploadStatus";
-        }
-
-        try {
-            String uploadedFolder = System.getenv("VOTING_ROOT") + "/images/dishes/";
-            byte[] bytes = file.getBytes();
-            Path path = Paths.get(uploadedFolder + file.getOriginalFilename());
-            Files.write(path, bytes);
-
-            redirectAttributes.addFlashAttribute("message", "You successfully uploaded '" + file.getOriginalFilename() + "'");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return "redirect:/uploadStatus";
-    }
-
-    @GetMapping("/uploadStatus")
-    public String uploadStatus() {
-        return "uploadStatus";
-    }*/
 
 }
