@@ -2,6 +2,12 @@ package com.voting.web.dailymenu;
 
 import com.voting.View;
 import com.voting.model.DailyMenu;
+import com.voting.model.DailyMenuDish;
+import com.voting.model.Resto;
+import com.voting.service.DishService;
+import com.voting.service.RestoService;
+import com.voting.to.DailyRestoMenuTo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,9 +18,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(DailyMenuRestController.REST_URL)
@@ -36,8 +41,8 @@ public class DailyMenuRestController extends AbstractDailyMenuController {
 
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<DailyMenu> createWithLocation(@Validated(View.Web.class) @RequestBody DailyMenu dailyMenu) {
-        DailyMenu created = super.create(dailyMenu);
+    public ResponseEntity<DailyMenu> createWithLocation(@Validated(View.Web.class) @RequestBody DailyRestoMenuTo dailyRestoMenuTo) {
+        DailyMenu created = super.create(createNewFromTo(dailyRestoMenuTo));
 
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path(REST_URL + "/{id}")
@@ -70,5 +75,22 @@ public class DailyMenuRestController extends AbstractDailyMenuController {
     @PostMapping(value = "/generate/")
     public void generateDailyMenu(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate date) {
         super.generateDailyMenu(date);
+    }
+
+
+    @Autowired
+    private RestoService restoService;
+
+    @Autowired
+    private DishService dishService;
+
+    public DailyMenu createNewFromTo(DailyRestoMenuTo newDailyMenu) {
+        Resto resto = restoService.get(newDailyMenu.getRestoId());
+
+        List<DailyMenuDish> dailyMenuDishes = newDailyMenu.getListDishesId().stream()
+                .map(dishId -> new DailyMenuDish(dishService.get(dishId)))
+                .collect(Collectors.toList());
+
+        return new DailyMenu(newDailyMenu.getDate(), resto, dailyMenuDishes);
     }
 }

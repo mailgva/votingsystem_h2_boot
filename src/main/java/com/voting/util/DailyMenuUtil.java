@@ -1,16 +1,30 @@
 package com.voting.util;
 
 import com.voting.model.*;
+import com.voting.service.DishService;
+import com.voting.service.RestoService;
 import com.voting.to.DailyMenuTo;
+import com.voting.to.DailyRestoMenuTo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
-
 public class DailyMenuUtil {
 
     private DailyMenuUtil(){}
+
+    public static DailyRestoMenuTo asTo(DailyMenu dailyMenu) {
+        List<Integer> listDishesId = dailyMenu.getDmDishes().stream()
+                .map(dailyMenuDish -> dailyMenuDish.getDish().getId())
+                .collect(Collectors.toList());
+
+        return new DailyRestoMenuTo(dailyMenu.getDate(), dailyMenu.getResto().getId(), listDishesId);
+    }
+
+
 
     public static List<DailyMenuTo> convertToDailyMenuTo(LocalDate date, List<DailyMenu> dailyMenus, Vote vote) {
         Map<Resto, List<Dish>> map = dailyMenus.stream()
