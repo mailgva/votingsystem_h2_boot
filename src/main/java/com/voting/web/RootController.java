@@ -42,14 +42,14 @@ import static com.voting.web.ExceptionInfoHandler.EXCEPTION_DUPLICATE_EMAIL;
 @Controller
 public class RootController extends AbstractUserController {
     @GetMapping("/")
-    public String root() {
+    public String root(ModelMap model) {
+        model.clear();
         return "redirect:voting";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/users")
-    public String users(/*Model model, HttpServletRequest request*/) {
-        //model = setModelAttrs(model, request);
+    public String users() {
         return "users";
     }
 
@@ -59,29 +59,25 @@ public class RootController extends AbstractUserController {
     }
 
     @GetMapping("/voting")
-    public String voting(/*Model model, HttpServletRequest request*/) {
-        //model = setModelAttrs(model, request);
+    public String voting() {
         return "dailymenu";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/votes")
-    public String votes(/*Model model, HttpServletRequest request*/) {
-        //model = setModelAttrs(model, request);
+    public String votes() {
         return "votes";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/dishes")
-    public String dishes(/*Model model, HttpServletRequest request*/) {
-        //model = setModelAttrs(model, request);
+    public String dishes() {
         return "dishes";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/restaurants")
-    public String restaurants(/*Model model, HttpServletRequest request*/) {
-        //model = setModelAttrs(model, request);
+    public String restaurants() {
         return "restaurants";
     }
 
@@ -140,7 +136,7 @@ public class RootController extends AbstractUserController {
 
     @ModelAttribute("request_uri")
     private String getRequestUri(HttpServletRequest request){
-        return request.getRequestURL().toString();
+        return request.getRequestURI();
     }
 
     @ModelAttribute("date")

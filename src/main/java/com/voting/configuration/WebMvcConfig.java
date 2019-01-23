@@ -229,7 +229,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }
 
     private Connector redirectConnector() {
-
         Connector connector = new Connector(TomcatServletWebServerFactory.DEFAULT_PROTOCOL);
         connector.setScheme("http");
         connector.setPort(8080);
