@@ -3,7 +3,6 @@ package com.voting.configuration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.voting.web.converter.DateTimeFormatters;
 import com.voting.web.converter.IdToRestoConverter;
-import com.voting.web.interceptor.ModelInterceptor;
 import com.voting.web.json.JacksonObjectMapper;
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
@@ -130,10 +129,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         LocaleChangeInterceptor localeInterceptor = new LocaleChangeInterceptor();
-        ModelInterceptor modelInterceptor = new ModelInterceptor();
         localeInterceptor.setParamName("lang");
         registry.addInterceptor(localeInterceptor).addPathPatterns("/*");
-        registry.addInterceptor(modelInterceptor).addPathPatterns("/*");
     }
 
     @Bean
