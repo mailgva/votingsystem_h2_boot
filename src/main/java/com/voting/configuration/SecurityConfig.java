@@ -21,7 +21,9 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.servlet.support.csrf.CsrfRequestDataValueProcessor;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.servlet.support.RequestDataValueProcessor;
 import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.templateresolver.ITemplateResolver;
@@ -69,8 +71,13 @@ public class SecurityConfig {
                     .antMatchers("/rest/profile/register").anonymous()
                     .antMatchers("/**").authenticated()
                     .and().csrf().disable();
-
         }
+
+        @Bean
+        public RequestDataValueProcessor requestDataValueProcessor() {
+            return new CsrfRequestDataValueProcessor();
+        }
+
 
     }
 
@@ -97,6 +104,12 @@ public class SecurityConfig {
                     .logoutSuccessUrl("/login").and().exceptionHandling()
                     .and().csrf();
         }
+
+        @Bean
+        public RequestDataValueProcessor requestDataValueProcessor() {
+            return new CsrfRequestDataValueProcessor();
+        }
+
     }
 
 

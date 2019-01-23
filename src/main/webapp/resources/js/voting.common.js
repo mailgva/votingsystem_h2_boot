@@ -28,6 +28,7 @@ function updateRow(id) {
     form.find(":input").val("");
     form.find("img[name='img_file_pic']").attr("src", "");
     $.get(context.ajaxUrl + id, function (data) {
+        //console.log(data);
         $.each(data, function (key, value) {
             if(key != "imgFilePath") {
                 form.find("input[name='" + key + "']").val(value);
