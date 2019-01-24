@@ -1,5 +1,6 @@
 package com.voting.web;
 
+import com.voting.VotingApplication;
 import com.voting.repository.JpaUtil;
 import com.voting.service.UserService;
 import com.voting.util.exception.ErrorType;
