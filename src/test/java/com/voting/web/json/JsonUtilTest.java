@@ -12,7 +12,6 @@ import java.util.List;
 import static com.voting.testdata.DishTestData.assertMatch;
 import static com.voting.testdata.UserTestData.ADMIN;
 import static com.voting.testdata.UserTestData.USER;
-import static org.junit.jupiter.api.Assertions.*;
 
 class JsonUtilTest {
     @Test

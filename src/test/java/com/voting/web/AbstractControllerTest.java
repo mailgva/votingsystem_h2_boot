@@ -1,6 +1,5 @@
 package com.voting.web;
 
-import com.voting.VotingApplication;
 import com.voting.repository.JpaUtil;
 import com.voting.service.UserService;
 import com.voting.util.exception.ErrorType;
@@ -20,7 +19,6 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 import javax.annotation.PostConstruct;
-import java.util.TimeZone;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;

@@ -6,9 +6,6 @@ import com.voting.model.Vote;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Month;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
 
 import static com.voting.model.AbstractBaseEntity.START_SEQ;

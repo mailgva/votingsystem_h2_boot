@@ -1,17 +1,13 @@
 package com.voting.web.user;
 
 import com.voting.TestUtil;
-import com.voting.model.Role;
 import com.voting.model.User;
 import com.voting.to.UserTo;
 import com.voting.util.UserUtil;
 import com.voting.util.exception.ErrorType;
 import com.voting.web.AbstractControllerTest;
-import com.voting.web.RootController;
 import com.voting.web.json.JsonUtil;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.transaction.annotation.Propagation;

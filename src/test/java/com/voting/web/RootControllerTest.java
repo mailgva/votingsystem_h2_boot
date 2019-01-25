@@ -1,12 +1,9 @@
 package com.voting.web;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.core.env.Environment;
 
 import static com.voting.TestUtil.userAuth;
-import static com.voting.testdata.UserTestData.*;
+import static com.voting.testdata.UserTestData.ADMIN;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;

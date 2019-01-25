@@ -1,15 +1,14 @@
 package com.voting.util;
 
-import com.voting.util.exception.ErrorType;
-import org.slf4j.Logger;
 import com.voting.HasId;
 import com.voting.model.Vote;
+import com.voting.util.exception.ErrorType;
 import com.voting.util.exception.NotFoundException;
 import com.voting.util.exception.PastDateException;
 import com.voting.util.exception.TooLateEcxeption;
+import org.slf4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;

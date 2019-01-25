@@ -1,23 +1,20 @@
 package com.voting.service.impl;
 
 import com.voting.AuthorizedUser;
+import com.voting.model.User;
 import com.voting.repository.UserRepository;
 import com.voting.service.UserService;
 import com.voting.to.UserTo;
+import com.voting.util.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
-import com.voting.model.User;
-import com.voting.util.exception.NotFoundException;
 
 import java.util.List;
 

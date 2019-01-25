@@ -2,12 +2,12 @@ package com.voting.testdata;
 
 import com.voting.model.Dish;
 import org.springframework.test.web.servlet.ResultMatcher;
-import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
 import static com.voting.TestUtil.readFromJsonMvcResult;
 import static com.voting.model.AbstractBaseEntity.START_SEQ;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DishTestData {
     public static int dishId = START_SEQ + 2 + 5; // 2 - users, 5 - restaurants

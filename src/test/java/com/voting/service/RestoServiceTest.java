@@ -1,14 +1,12 @@
 package com.voting.service;
 
 import com.voting.TestUtil;
-import com.voting.testdata.RestoTestData;
 import com.voting.model.Resto;
+import com.voting.testdata.RestoTestData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.slf4j.bridge.SLF4JBridgeHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
-import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

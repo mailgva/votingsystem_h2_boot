@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDate;
-import java.util.Date;
 
 @XmlRootElement
 @NoArgsConstructor

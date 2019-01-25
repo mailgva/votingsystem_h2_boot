@@ -1,15 +1,13 @@
 package com.voting.util;
 
 import com.voting.model.*;
-import com.voting.service.DishService;
-import com.voting.service.RestoService;
 import com.voting.to.DailyMenuTo;
 import com.voting.to.DailyRestoMenuTo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class DailyMenuUtil {

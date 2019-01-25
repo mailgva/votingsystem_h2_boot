@@ -1,6 +1,7 @@
 package com.voting.repository;
 
 import com.voting.model.Dish;
+
 import java.util.List;
 
 public interface DishRepository {
