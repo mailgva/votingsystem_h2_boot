@@ -24,9 +24,20 @@ import org.springframework.web.servlet.support.RequestDataValueProcessor;
 @EnableWebSecurity
 public class SecurityConfig {
 
+
+
     @Configuration
     @Order(1)
     public class RestConfig extends WebSecurityConfigurerAdapter {
+        @Autowired
+        private PasswordEncoder passwordEncoder;
+
+        @Autowired
+        private UserServiceImpl userService;
+
+
+
+
         @Override
         public void configure(WebSecurity web) throws Exception {
             web.ignoring()
@@ -103,16 +114,7 @@ public class SecurityConfig {
     }
 
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private UserServiceImpl userService;
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-    }
 
 
 

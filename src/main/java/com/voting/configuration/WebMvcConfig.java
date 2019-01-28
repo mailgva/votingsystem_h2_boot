@@ -10,6 +10,7 @@ import org.apache.tomcat.util.descriptor.web.SecurityCollection;
 import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
@@ -23,6 +24,7 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.security.web.method.annotation.AuthenticationPrincipalArgumentResolver;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.LocaleResolver;
@@ -97,6 +99,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         final String IMAGES_PATH = "file:///" + System.getenv("VOTING_ROOT").replace("\\","/") + "/images/";
         registry.addResourceHandler("/resources/**")
                 .addResourceLocations("/resources/")
+                .addResourceLocations("classpath:/resources/")
                 .addResourceLocations("/webjars/","classpath:/META-INF/resources/webjars/");
 
         registry.addResourceHandler("/pictures/**")
@@ -108,14 +111,14 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return JacksonObjectMapper.getMapper();
     }
 
-    @Override
+    /*@Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        /*resolver.setPrefix("/WEB-INF/jsp/");
-        resolver.setSuffix(".jsp");*/
+        *//*resolver.setPrefix("/WEB-INF/jsp/");
+        resolver.setSuffix(".jsp");*//*
         resolver.setViewClass(JstlView.class);
         registry.viewResolver(resolver);
-    }
+    }*/
 
 
     @Bean
@@ -169,7 +172,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }*/
 
 
-    @Bean
+    /*@Bean
     public SpringResourceTemplateResolver templateResolver(){
         // SpringResourceTemplateResolver automatically integrates with Spring's own
         // resource resolution infrastructure, which is highly recommended.
@@ -208,7 +211,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         templateEngine.setTemplateResolver(templateResolver);
         templateEngine.addDialect(sec); // Enable use of "sec"
         return templateEngine;
-    }
+    }*/
 
 
     @Bean
