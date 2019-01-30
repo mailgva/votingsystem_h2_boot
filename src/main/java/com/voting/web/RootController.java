@@ -113,8 +113,6 @@ public class RootController extends AbstractUserController {
         }
     }
 
-
-
     @ModelAttribute("localeMessages")
     private String getLocaleMessages(HttpServletRequest request){
         return createLocalMessages(request);

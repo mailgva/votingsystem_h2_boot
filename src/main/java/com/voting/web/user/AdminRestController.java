@@ -2,6 +2,8 @@ package com.voting.web.user;
 
 import com.voting.View;
 import com.voting.model.User;
+import com.voting.to.UserTo;
+import com.voting.util.UserUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -61,5 +63,12 @@ public class AdminRestController extends AbstractUserController {
     @GetMapping(value = "/by", produces = MediaType.APPLICATION_JSON_VALUE)
     public User getByMail(@RequestParam("email") String email) {
         return super.getByMail(email);
+    }
+
+
+    @PostMapping(value = "/list", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void addListUsers(@Validated(View.Web.class) @RequestBody List<UserTo> userToList) {
+        userToList.stream()
+                .forEach(userTo -> super.create(UserUtil.createNewFromTo(userTo)));
     }
 }

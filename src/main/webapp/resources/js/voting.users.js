@@ -24,7 +24,8 @@ $(function () {
                     "url": userAjaxUrl,
                     "dataSrc": ""
                 },
-                "paging": false,
+                "paging": true,
+                //"pageLength": 15,
                 "info": true,
                 "language": dataTablesLang,
                 "columns": [

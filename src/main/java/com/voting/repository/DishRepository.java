@@ -20,4 +20,5 @@ public interface DishRepository {
     List<Dish> getAll();
 
     Dish getByNameAndPrice(String name, double price);
+
 }
