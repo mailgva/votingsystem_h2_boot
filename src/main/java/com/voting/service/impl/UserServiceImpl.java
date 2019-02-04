@@ -36,8 +36,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         this.passwordEncoder = passwordEncoder;
     }
 
-
     @Async
+    @CacheEvict(value = "users", allEntries = true)
+    public User createAsync(User user) {
+        Assert.notNull(user, "user must not be null");
+        return repository.save(prepareToSave(user, passwordEncoder));
+    }
+
     @CacheEvict(value = "users", allEntries = true)
     @Override
     public User create(User user) {

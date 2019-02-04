@@ -11,6 +11,8 @@ public interface UserService {
 
     User create(User user);
 
+    User createAsync(User user);
+
     void delete(int id) throws NotFoundException;
 
     User get(int id) throws NotFoundException;

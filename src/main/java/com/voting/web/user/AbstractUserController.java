@@ -45,6 +45,12 @@ public abstract class AbstractUserController {
         return service.create(user);
     }
 
+    public User createAsync(User user) {
+        log.info("create {}", user);
+        checkNew(user);
+        return service.createAsync(user);
+    }
+
     public void delete(int id) {
         log.info("delete {}", id);
         checkModificationAllowed(id);
