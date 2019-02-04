@@ -19,22 +19,12 @@ public class FacebookController extends AbstractOauthController {
     public String authorize(HttpServletRequest request) {
         String callbackUrl = request.getRequestURL().substring(0,request.getRequestURL().lastIndexOf("/")+1) + "callback";
         return "redirect:" + AUTHORIZE_URL + "?client_id=" + CLIENT_ID +
-                /*"&client_secret=" + CLIENT_SECRET +*/ "&redirect_uri=" + callbackUrl + "&state=" + CODE;
+                 "&redirect_uri=" + callbackUrl + "&state=" + CODE;
     }
 
     @RequestMapping("/callback")
     public ModelAndView authenticate(@RequestParam String code, @RequestParam String state, RedirectAttributes attr, HttpServletRequest request) {
-        if (state.equals("voting_csrf_token_auth")) {
-            String callbackUrl = request.getRequestURL().substring(0,request.getRequestURL().lastIndexOf("/")+1) + "callback";
-            String accessToken = getAccessToken(code, ACCESS_TOKEN_URL, CLIENT_ID, CLIENT_SECRET, callbackUrl);
-            String login = getLogin(accessToken, GET_LOGIN_URL);
-            String email = getEmail(accessToken, GET_LOGIN_URL);
-            if(email.equals("null")) {
-                email = "test@test.com";
-            }
-            return authorizeAndRedirect(login, email, attr);
-        }
-        return null;
+        return super.authenticate(code, state, attr, request, ACCESS_TOKEN_URL, CLIENT_ID, CLIENT_SECRET, GET_LOGIN_URL);
     }
 
 
