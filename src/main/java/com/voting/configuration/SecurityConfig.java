@@ -91,6 +91,7 @@ public class SecurityConfig {
             http
                     .authorizeRequests()
                     .antMatchers("/login").permitAll()
+                    .antMatchers("/oauth/github/**").permitAll()
                     .antMatchers("/register").anonymous()
                     .antMatchers("/**/admin/**").hasRole("ADMIN")
                     .antMatchers("/**").authenticated()

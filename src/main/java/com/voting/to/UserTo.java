@@ -30,6 +30,11 @@ public class UserTo extends BaseTo implements Serializable {
     @Size(min = 5, max = 32)
     private String password;
 
+    public UserTo(@NotBlank @Size(min = 2, max = 100) @SafeHtml String name, @Email @NotBlank @Size(max = 100) @SafeHtml String email) {
+        this.name = name;
+        this.email = email;
+    }
+
     public UserTo(Integer id, String name, String email, String password) {
         super(id);
         this.name = name;

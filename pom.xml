@@ -51,6 +51,7 @@
         <ehcache.version>3.6.1</ehcache.version>
 
         <!--webjars-->
+        <webjars-social.version>5.0.0</webjars-social.version>
         <webjars-bootstrap.version>4.1.3</webjars-bootstrap.version>
         <webjars-jquery.version>3.3.1-1</webjars-jquery.version>
         <webjars-datetimepicker.version>2.5.20</webjars-datetimepicker.version>
@@ -256,6 +257,11 @@
         </dependency>
 
         <!-- Webjars (static dependencies distributed as JAR files) -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap-social</artifactId>
+            <version>${webjars-social.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
