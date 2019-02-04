@@ -2,6 +2,7 @@ package com.voting.web.oauth.github;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.voting.to.UserTo;
+import com.voting.web.oauth.AbstractOauthController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.ResponseEntity;
@@ -25,14 +26,11 @@ import static org.springframework.web.util.UriComponentsBuilder.fromHttpUrl;
 
 @Controller
 @RequestMapping("/oauth/github")
-public class Oauth2Controller {
+public class GithubController extends AbstractOauthController {
     @Autowired
     private RestTemplate template;
 
-    @Autowired
-    private UserDetailsService service;
-
-    @RequestMapping("/authorize")
+      @RequestMapping("/authorize")
     public String authorize(HttpServletRequest request) {
         String callbackUrl = request.getRequestURL().substring(0,request.getRequestURL().lastIndexOf("/")+1) + "callback";
         return "redirect:" + AUTHORIZE_URL + "?client_id=" + CLIENT_ID +
@@ -63,12 +61,6 @@ public class Oauth2Controller {
         return tokenEntity.getBody().get("access_token").asText();
     }
 
-    /*private String getEmail(String accessToken) {
-        UriComponentsBuilder builder = fromHttpUrl(GET_EMAIL_URL).queryParam("access_token", accessToken);
-        ResponseEntity<JsonNode> entityEmail = template.getForEntity(builder.build().encode().toUri(), JsonNode.class);
-        return entityEmail.getBody().get(0).get("email").asText();
-    }*/
-
     private String getEmail(String accessToken) {
         UriComponentsBuilder builder = fromHttpUrl(GET_LOGIN_URL).queryParam("access_token", accessToken);
         ResponseEntity<JsonNode> entityUser = template.getForEntity(builder.build().encode().toUri(), JsonNode.class);
@@ -81,14 +73,5 @@ public class Oauth2Controller {
         return entityUser.getBody().get("name").asText();
     }
 
-    private ModelAndView authorizeAndRedirect(String login, String email, RedirectAttributes attr) {
-        try {
-            UserDetails userDetails = service.loadUserByUsername(email);
-            getContext().setAuthentication(new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities()));
-            return new ModelAndView("redirect:/voting");
-        } catch (UsernameNotFoundException ex) {
-            attr.addFlashAttribute("userTo", new UserTo(login, email));
-            return new ModelAndView("redirect:/register");
-        }
-    }
+
 }

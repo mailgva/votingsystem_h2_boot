@@ -19,6 +19,9 @@
                 <a class="btn btn-lg btn-social btn-github" th:href="@{/oauth/github/authorize}">
                     <span class="fa fa-github"></span>[[#{app.github}]]
                 </a>
+                <a class="btn btn-lg btn-social btn-facebook" th:href="@{/oauth/facebook/authorize}">
+                    <span class="fa fa-facebook"></span>[[#{app.facebook}]]
+                </a>
                 <button type="submit" class="btn btn-lg btn-primary" onclick="login('user@yandex.ru', 'password')">
                     <span th:text="#{app.login}"/> User
                 </button>
