@@ -50,7 +50,7 @@
     </div>
 </div>
 <div class="container lead">
-        &nbsp;&nbsp;&nbsp;<a href="https://github.com/JavaOPs/topjava">Java Enterprise проект</a> с
+        &nbsp;&nbsp;&nbsp;<a href="https://github.com/mailgva/votingsystem_h2_boot">Java Enterprise проект</a> с
         регистрацией/авторизацией и интерфейсом на основе ролей (USER, ADMIN).
         Администратор может создавать/редактировать/удалять пользователей, блюда, рестораны, генерировать меню на день по ресторанам; 
         пользователи - управлять своим профилем и данными (день, голос за ресторан) через UI (по AJAX) и по REST интерфейсу с базовой авторизацией.
