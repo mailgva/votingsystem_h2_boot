@@ -1,7 +1,9 @@
 package com.voting.web.oauth;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.voting.to.UserTo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -9,8 +11,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import static org.springframework.security.core.context.SecurityContextHolder.getContext;
+import static org.springframework.web.util.UriComponentsBuilder.fromHttpUrl;
 
 public abstract class AbstractOauthController {
     @Autowired
@@ -28,5 +32,28 @@ public abstract class AbstractOauthController {
             attr.addFlashAttribute("userTo", new UserTo(login, email));
             return new ModelAndView("redirect:/register");
         }
+    }
+
+    protected String getAccessToken(String code, final String ACCESS_TOKEN_URL, final String CLIENT_ID,
+                                    final String CLIENT_SECRET, final String REDIRECT_URI) {
+        UriComponentsBuilder builder = fromHttpUrl(ACCESS_TOKEN_URL)
+                .queryParam("client_id", CLIENT_ID)
+                .queryParam("client_secret", CLIENT_SECRET)
+                .queryParam("code", code)
+                .queryParam("redirect_uri", REDIRECT_URI);
+        ResponseEntity<JsonNode> tokenEntity = template.postForEntity(builder.build().encode().toUri(), null, JsonNode.class);
+        return tokenEntity.getBody().get("access_token").asText();
+    }
+
+    protected String getEmail(String accessToken, final String GET_LOGIN_URL) {
+        UriComponentsBuilder builder = fromHttpUrl(GET_LOGIN_URL).queryParam("access_token", accessToken);
+        ResponseEntity<JsonNode> entityUser = template.getForEntity(builder.build().encode().toUri(), JsonNode.class);
+        return entityUser.getBody().get("email").asText();
+    }
+
+    protected String getLogin(String accessToken, final String GET_LOGIN_URL) {
+        UriComponentsBuilder builder = fromHttpUrl(GET_LOGIN_URL).queryParam("access_token", accessToken);
+        ResponseEntity<JsonNode> entityUser = template.getForEntity(builder.build().encode().toUri(), JsonNode.class);
+        return entityUser.getBody().get("name").asText();
     }
 }
