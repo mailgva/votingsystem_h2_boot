@@ -7,7 +7,7 @@ $(function () {
         );
     });
 
-    let inp_date = $('#filter :input[name="date"]');
+    let inpDate = $('#filter :input[name="date"]');
 
     updateFace();
 
@@ -23,12 +23,12 @@ function updateFace() {
          type: "GET",
          url: ajaxUrl,
          dataType: "json",
-         data: {date: inp_date},
+         data: {date: inpDate},
          success: function(data){
              if(jQuery.isEmptyObject(data)) {
                  warnNoty("common.noPresentMenuDay");
              } else {
-                drawTablePanels(data,form, inpDate);
+                drawTablePanels(data,form);
                 //$('[data-toggle="tooltip"]').tooltip();
                  $('[data-toggle="tooltip"]').tooltip({
                      animated: "fade",
@@ -38,26 +38,23 @@ function updateFace() {
              }
          }
      });
-
-
 }
 
-function drawTablePanels(data,form,inp_date) {
+function drawTablePanels(data,form) {
     closeNoty();
-    let input_date = $("<input/>")
+    let inputDate = $("<input/>")
         .attr("type", "hidden")
         .attr("name", "date");
 
     let div = $('<div/>').addClass("row");
 
-    form.append(input_date);
+    form.append(inputDate);
     form.append(div);
     $.each(data, function(i, item_r) {
-        if (input_date.val() === "") input_date.val(item_r.date);
+        if (inputDate.val() === "") inputDate.val(item_r.date);
 
         let restoId = item_r.resto.id;
 
-        //let divInLine = $('<div/>').addClass("col-xs-6");
         let divInLine = $('<div/>').attr("style", "width: 50%; float: left;");
         div.append(divInLine);
 
