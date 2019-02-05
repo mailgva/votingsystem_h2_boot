@@ -1,6 +1,5 @@
 const ajaxUrl = "ajax/voting/";
 
-// $(document).ready(function () {
 $(function () {
     $(function () {
         makeEditable({
@@ -16,24 +15,24 @@ $(function () {
 
 function updateFace() {
     let form = $('#voteForm');
-    let inp_date = $('#filter :input[name="date"]').val();
+    let inpDate = $('#filter :input[name="date"]').val();
 
     form.empty();
 
     $.ajax({
          type: "GET",
          url: ajaxUrl,
-         dataType: 'json',
+         dataType: "json",
          data: {date: inp_date},
          success: function(data){
              if(jQuery.isEmptyObject(data)) {
                  warnNoty("common.noPresentMenuDay");
              } else {
-                drawTablePanels(data,form,inp_date);
+                drawTablePanels(data,form, inpDate);
                 //$('[data-toggle="tooltip"]').tooltip();
                  $('[data-toggle="tooltip"]').tooltip({
-                     animated: 'fade',
-                     placement: 'bottom',
+                     animated: "fade",
+                     placement: "bottom",
                      html: true
                  });
              }
@@ -62,7 +61,7 @@ function drawTablePanels(data,form,inp_date) {
         let divInLine = $('<div/>').attr("style", "width: 50%; float: left;");
         div.append(divInLine);
 
-        let dl = $('<dl/>').attr("data-restSelected", item_r.selected);
+        let dl = $("<dl/>").attr("data-restSelected", item_r.selected);
         divInLine.append(dl);
 
         let dt = $('<dt/>');
@@ -77,25 +76,25 @@ function drawTablePanels(data,form,inp_date) {
             .val(restoId);
         if (item_r.selected === "true") input.attr("checked", "true");
 
-        let label = $('<label/>')
+        let label = $("<label/>")
             .attr("for", restoId)
             .text(item_r.resto.name);
 
         dt.append(input);
         dt.append(label);
 
-        let dd = $('<dd/>');
-        let table = $('<table/>').addClass("table table-bordered");
-        let thead = $('<thead/>').addClass("thead-dark");
-        let tr = $('<tr/>');
-        let thn = $('<th/>').attr("style", "width:250px;").text(i18n["dish.name"]);
-        let thp = $('<th/>').text(i18n["dish.price"]);
+        let dd = $("<dd/>");
+        let table = $("<table/>").addClass("table table-bordered");
+        let thead = $("<thead/>").addClass("thead-dark");
+        let tr = $("<tr/>");
+        let thn = $("<th/>").attr("style", "width:250px;").text(i18n["dish.name"]);
+        let thp = $("<th/>").text(i18n["dish.price"]);
 
         tr.append(thn);
         tr.append(thp);
         thead.append(tr);
 
-        var tbody = $('<tbody/>');
+        var tbody = $("<tbody/>");
 
         table.append(thead);
         table.append(tbody);
@@ -113,9 +112,9 @@ function drawTablePanels(data,form,inp_date) {
 
 function drawTableBodyManualy(tbody, data) {
    $.each(data, function(j, item_d) {
-                let trb = $('<tr/>');
-                let tdn = $('<td/>').text(item_d.name);
-                let tdp = $('<td/>').text(item_d.price);
+                let trb = $("<tr/>");
+                let tdn = $("<td/>").text(item_d.name);
+                let tdp = $("<td/>").text(item_d.price);
 
                 trb.append(tdn);
                 trb.append(tdp);
