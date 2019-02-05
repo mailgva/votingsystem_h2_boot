@@ -2,7 +2,7 @@ let context, form;
 
 function makeEditable(ctx) {
     context = ctx;
-    form = $('#detailsForm');
+    form = $("#detailsForm");
     $(document).ajaxError(function (event, jqXHR, options, jsExc) {
         failNoty(jqXHR);
     });
@@ -36,7 +36,7 @@ function updateRow(id) {
                 form.find("img[name='img_file_pic']").attr("src", value);
             }
         });
-        $('#editRow').modal();
+        $("#editRow").modal();
     });
 }
 
@@ -45,12 +45,12 @@ function deleteRow(id) {
         message: i18n["common.confirmDelete"],
         buttons: {
             confirm: {
-                label: 'Yes',
-                className: 'btn-success'
+                label: "Yes",
+                className: "btn-success"
             },
             cancel: {
-                label: 'No',
-                className: 'btn-danger'
+                label: "No",
+                className: "btn-danger"
             }
         },
         callback: function (result) {
@@ -112,7 +112,7 @@ function successNoty(key) {
     closeNoty();
     new Noty({
         text: "<span class='fa fa-lg fa-check'></span> &nbsp;" + i18n[key],
-        type: 'success',
+        type: "success",
         layout: "bottomRight",
         timeout: 1000
     }).show();
