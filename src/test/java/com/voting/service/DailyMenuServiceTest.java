@@ -100,7 +100,7 @@ public class DailyMenuServiceTest extends AbstractServiceTest{
     @Test
     public void getAll() {
         List<DailyMenu> dailyMenus = service.getAll();
-        assertEquals(dailyMenus.size(), 9);
+        assertEquals(dailyMenus.size(), 18);
     }
 
 
