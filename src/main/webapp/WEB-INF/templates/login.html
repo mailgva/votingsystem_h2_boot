@@ -16,6 +16,9 @@
         <div sec:authorize="isAnonymous()">
             <div class="pt-4">
                 <a class="btn btn-lg btn-success" href="register" th:text="#{app.register}"> </a>
+                <a class="btn btn-lg btn-social-icon btn-google" th:href="@{/oauth/google/authorize}">
+                    <span class="fa fa-google"></span>
+                </a>
                 <a class="btn btn-lg btn-social-icon btn-github" th:href="@{/oauth/github/authorize}">
                     <span class="fa fa-github"></span>
                 </a>

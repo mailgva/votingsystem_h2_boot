@@ -36,7 +36,7 @@ public class VotingApplication extends SpringBootServletInitializer {
 
 		ApplicationContext context = SpringApplication.run(VotingApplication.class, args);
 		DailyMenuService service = context.getBean(DailyMenuService.class);
-		//generateDailyMenuForFewDays(service);
+		generateDailyMenuForFewDays(service);
 	}
 
 

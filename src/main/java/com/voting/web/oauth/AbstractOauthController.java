@@ -40,7 +40,9 @@ public abstract class AbstractOauthController {
                 .queryParam("client_id", CLIENT_ID)
                 .queryParam("client_secret", CLIENT_SECRET)
                 .queryParam("code", code)
-                .queryParam("redirect_uri", REDIRECT_URI);
+                .queryParam("redirect_uri", REDIRECT_URI)
+                .queryParam("grant_type", "authorization_code");
+
         ResponseEntity<JsonNode> tokenEntity = template.postForEntity(builder.build().encode().toUri(), null, JsonNode.class);
         return tokenEntity.getBody().get("access_token").asText();
     }
