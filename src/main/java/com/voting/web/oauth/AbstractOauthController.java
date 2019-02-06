@@ -64,7 +64,7 @@ public abstract class AbstractOauthController {
             String accessToken = getAccessToken(code, ACCESS_TOKEN_URL, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
             String login = getLogin(accessToken, GET_LOGIN_URL);
             String email = getEmail(accessToken, GET_LOGIN_URL);
-            if(email.equals("null")) {
+            if(email == null || email.equals("null") || email.isEmpty()) {
                 email = "test@test.com";
             }
             return authorizeAndRedirect(login, email, attr);
