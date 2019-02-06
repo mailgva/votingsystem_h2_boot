@@ -45,25 +45,13 @@ public abstract class AbstractOauthController {
         return tokenEntity.getBody().get("access_token").asText();
     }
 
-    protected String getEmail(String accessToken, final String GET_LOGIN_URL) {
-        UriComponentsBuilder builder = fromHttpUrl(GET_LOGIN_URL).queryParam("access_token", accessToken);
-        ResponseEntity<JsonNode> entityUser = template.getForEntity(builder.build().encode().toUri(), JsonNode.class);
-        return entityUser.getBody().get("email").asText();
-    }
-
-    protected String getLogin(String accessToken, final String GET_LOGIN_URL) {
-        UriComponentsBuilder builder = fromHttpUrl(GET_LOGIN_URL).queryParam("access_token", accessToken);
-        ResponseEntity<JsonNode> entityUser = template.getForEntity(builder.build().encode().toUri(), JsonNode.class);
-        return entityUser.getBody().get("name").asText();
-    }
-
     protected ModelAndView authenticate(String code, String state, RedirectAttributes attr,
                                         final String ACCESS_TOKEN_URL, final String CLIENT_ID,
                                         final String CLIENT_SECRET, final String GET_LOGIN_URL, final String REDIRECT_URI) {
         if (state.equals("voting_csrf_token_auth")) {
             String accessToken = getAccessToken(code, ACCESS_TOKEN_URL, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
-            String login = getLogin(accessToken, GET_LOGIN_URL);
-            String email = getEmail(accessToken, GET_LOGIN_URL);
+            String login = getValue(accessToken, GET_LOGIN_URL, "name");
+            String email = getValue(accessToken, GET_LOGIN_URL, "email");
             if(email == null || email.equals("null") || email.isEmpty()) {
                 email = "test@test.com";
             }
@@ -71,4 +59,12 @@ public abstract class AbstractOauthController {
         }
         return null;
     }
+
+    protected String getValue(String accessToken, final String GET_LOGIN_URL, String key) {
+        UriComponentsBuilder builder = fromHttpUrl(GET_LOGIN_URL).queryParam("access_token", accessToken);
+        ResponseEntity<JsonNode> entityUser = template.getForEntity(builder.build().encode().toUri(), JsonNode.class);
+        return entityUser.getBody().get(key).asText();
+    }
+
+
 }
