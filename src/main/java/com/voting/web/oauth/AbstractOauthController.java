@@ -65,7 +65,7 @@ public abstract class AbstractOauthController {
     protected String getValue(String accessToken, final String GET_LOGIN_URL, String key) {
         UriComponentsBuilder builder = fromHttpUrl(GET_LOGIN_URL).queryParam("access_token", accessToken);
         ResponseEntity<JsonNode> entityUser = template.getForEntity(builder.build().encode().toUri(), JsonNode.class);
-        return entityUser.getBody().get(key).asText();
+        return (entityUser.getBody().has(key) ? entityUser.getBody().get(key).asText() : null);
     }
 
 
