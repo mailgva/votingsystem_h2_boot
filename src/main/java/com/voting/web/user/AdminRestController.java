@@ -69,6 +69,8 @@ public class AdminRestController extends AbstractUserController {
     @PostMapping(value = "/list", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addListUsers(@Validated(View.Web.class) @RequestBody List<UserTo> userToList) {
         userToList.stream()
-                .forEach(userTo -> super.createAsync(UserUtil.createNewFromTo(userTo)));
+                .forEach(userTo -> {
+                        super.createAsync(UserUtil.createNewFromTo(userTo));
+                });
     }
 }

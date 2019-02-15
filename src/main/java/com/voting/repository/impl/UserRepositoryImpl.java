@@ -17,7 +17,7 @@ public class UserRepositoryImpl implements UserRepository {
     private CrudUserRepository crudRepository;
 
     @Override
-    public User save(User user) {
+    public User save(User user)  {
         return crudRepository.save(user);
     }
 

@@ -3,6 +3,7 @@ package com.voting.web.user;
 import com.voting.TestUtil;
 import com.voting.model.Role;
 import com.voting.model.User;
+import com.voting.to.UserTo;
 import com.voting.util.exception.ErrorType;
 import com.voting.web.AbstractControllerTest;
 import com.voting.web.json.JsonUtil;
@@ -12,11 +13,15 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 
 import static com.voting.TestUtil.readFromJsonResultActions;
 import static com.voting.TestUtil.userHttpBasic;
 import static com.voting.testdata.UserTestData.*;
+import static com.voting.util.UserUtil.asTo;
 import static com.voting.web.ExceptionInfoHandler.EXCEPTION_DUPLICATE_EMAIL;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -177,6 +182,23 @@ class AdminRestControllerTest extends AbstractControllerTest {
                 .andExpect(errorType(ErrorType.VALIDATION_ERROR))
                 .andExpect(detailMessage(EXCEPTION_DUPLICATE_EMAIL));
 
+    }
+
+
+    @Test
+    @Transactional
+    void testAsyncCreate() throws Exception {
+        List<UserTo> users = new ArrayList<>();
+        for(int i = 0; i < 10; i++) {
+           User user = new User(null, "New" + i, "new" + i +"@gmail.com", "newPass", false, new Date(), Collections.singleton(Role.ROLE_USER));
+           users.add(asTo(user));
+        }
+
+        mockMvc.perform(post(REST_URL+ "/list")
+                .contentType(MediaType.APPLICATION_JSON)
+                .with(userHttpBasic(ADMIN))
+                .content(JsonUtil.writeValue(users)))
+                .andDo(print());
     }
 
 }

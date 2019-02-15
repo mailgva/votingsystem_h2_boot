@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import static com.voting.util.UserUtil.prepareToSave;
 import static com.voting.util.UserUtil.updateFromTo;
@@ -38,9 +39,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Async
     @CacheEvict(value = "users", allEntries = true)
-    public User createAsync(User user) {
+    public CompletableFuture<User> createAsync(User user)  {
         Assert.notNull(user, "user must not be null");
-        return repository.save(prepareToSave(user, passwordEncoder));
+        User result = repository.save(prepareToSave(user, passwordEncoder));
+        return CompletableFuture.completedFuture(result);
     }
 
     @CacheEvict(value = "users", allEntries = true)

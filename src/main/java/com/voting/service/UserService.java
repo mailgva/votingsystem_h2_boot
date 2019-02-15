@@ -6,12 +6,13 @@ import com.voting.to.UserTo;
 import com.voting.util.exception.NotFoundException;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public interface UserService {
 
     User create(User user);
 
-    User createAsync(User user);
+    CompletableFuture<User> createAsync(User user);
 
     void delete(int id) throws NotFoundException;
 

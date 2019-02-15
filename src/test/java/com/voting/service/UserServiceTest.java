@@ -8,10 +8,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import org.springframework.dao.DataAccessException;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.IntStream;
 
 import static com.voting.testdata.UserTestData.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -94,5 +98,41 @@ public class UserServiceTest extends AbstractServiceTest {
         assertFalse(service.get(USER_ID).isEnabled());
         service.enable(USER_ID, true);
         assertTrue(service.get(USER_ID).isEnabled());
+    }
+
+
+
+
+    @Test
+    @Transactional
+    void asyncCreate() throws Exception {
+        List<CompletableFuture<User>> allUsers = new ArrayList<>();
+
+        IntStream.range(0, 10)
+                .forEach(i -> {
+                    allUsers.add(
+                    service.createAsync(
+                                new User(null, "New" + i, "new" + i +"@gmail.com", "newPass",
+                                        false, new Date(), Collections.singleton(Role.ROLE_USER))));
+                });
+
+        while(true) {
+            boolean notIsDone = true;
+            for(CompletableFuture<User> future : allUsers){
+                if(!future.isDone()) {
+                    notIsDone = false;
+                    break;
+                }
+            }
+            if(notIsDone) break;
+            Thread.sleep(200);
+        }
+
+        /*allUsers.stream().forEach(u -> {
+            try {
+                System.out.println(u.get());
+            } catch (Exception e) {}
+        });*/
+        assertEquals(12, service.getAll().size());
     }
 }
