@@ -128,11 +128,6 @@ public class UserServiceTest extends AbstractServiceTest {
             Thread.sleep(200);
         }
 
-        /*allUsers.stream().forEach(u -> {
-            try {
-                System.out.println(u.get());
-            } catch (Exception e) {}
-        });*/
         assertEquals(12, service.getAll().size());
     }
 }

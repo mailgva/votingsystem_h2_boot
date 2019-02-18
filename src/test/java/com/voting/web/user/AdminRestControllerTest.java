@@ -61,6 +61,7 @@ class AdminRestControllerTest extends AbstractControllerTest {
     }
 
     @Test
+    @Transactional
     void testDelete() throws Exception {
         mockMvc.perform(delete(REST_URL + USER_ID)
                 .with(userHttpBasic(ADMIN)))
@@ -156,7 +157,7 @@ class AdminRestControllerTest extends AbstractControllerTest {
     }
 
     @Test
-    @Transactional(propagation = Propagation.NEVER)
+    @Transactional (propagation = Propagation.NEVER)
     void testUpdateDuplicate() throws Exception {
         User updated = new User(USER);
         updated.setEmail("admin@gmail.com");
