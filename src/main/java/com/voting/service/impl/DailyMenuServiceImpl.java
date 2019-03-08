@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 import static com.voting.util.ValidationUtil.checkNotFoundWithId;
@@ -52,8 +54,21 @@ public class DailyMenuServiceImpl implements DailyMenuService {
 
     //@Cacheable("daily_menu")
     @Override
-    public List<DailyMenu> getByDate(LocalDate date) {
-        return repository.getByDate(date);
+    public List<DailyMenu> getByDate(LocalDate date)
+    {
+        List<DailyMenu> result = repository.getByDate(date);
+
+        // menu for Today (if before 11:00)  or menu for tomorrow, must by exist always
+        if(((result == null)||(result.isEmpty())) &&
+                (
+                 ((LocalDate.now().equals(date)) && (LocalDateTime.now().isAfter(LocalDateTime.of(LocalDate.now(), LocalTime.of(10,59,59))))) ||
+                         (LocalDate.now().plusDays(1).equals(date))
+                )
+          ) {
+            generateDailyMenu(date);
+            result = repository.getByDate(date);
+        }
+        return result;
     }
 
     @Cacheable("daily_menu")
@@ -67,5 +82,10 @@ public class DailyMenuServiceImpl implements DailyMenuService {
     public void generateDailyMenu(LocalDate date) {
         repository.deleteByDate(date);
         repository.generateDailyMenu(date);
+    }
+
+    @Override
+    public void deleteByDate(LocalDate date) {
+        repository.deleteByDate(date);
     }
 }

@@ -13,6 +13,8 @@ public interface DailyMenuService {
 
     void delete(int id) throws NotFoundException;
 
+    void deleteByDate(LocalDate date);
+
     DailyMenu get(int id) throws NotFoundException;
 
     List<DailyMenu> getByDate(LocalDate date) ;

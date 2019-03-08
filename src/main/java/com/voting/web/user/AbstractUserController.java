@@ -26,7 +26,7 @@ public abstract class AbstractUserController {
 
     @Autowired
     public void setEnvironment(Environment environment) {
-        modificationRestriction = environment.acceptsProfiles("heroku");
+        modificationRestriction = true; // environment.acceptsProfiles("heroku");
     }
 
     public List<User> getAll() {

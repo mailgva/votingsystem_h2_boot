@@ -72,6 +72,13 @@ public class DailyMenuRestController extends AbstractDailyMenuController {
     }
 
     @Override
+    @DeleteMapping(value = "/bydate/")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void deleteByDate(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate date) {
+        super.deleteByDate(date);
+    }
+
+    @Override
     @PostMapping(value = "/generate/")
     public void generateDailyMenu(@RequestParam(value = "date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate date) {
         super.generateDailyMenu(date);

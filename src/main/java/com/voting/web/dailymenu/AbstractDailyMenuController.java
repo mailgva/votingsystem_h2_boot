@@ -53,6 +53,11 @@ public abstract class AbstractDailyMenuController {
         return service.getByDate(date);
     }
 
+    public void deleteByDate(LocalDate date) {
+        log.info("delete by date {} ", date);
+        service.deleteByDate(date);
+    };
+
     public void generateDailyMenu(LocalDate date) {
         service.generateDailyMenu(date);
     }
