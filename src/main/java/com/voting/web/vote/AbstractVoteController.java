@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 
 import static com.voting.util.ValidationUtil.assureIdConsistent;
@@ -44,16 +45,16 @@ public class AbstractVoteController {
 
 
     public List<Vote> getByDateUsers(LocalDate date) {
-        int userId = SecurityUtil.authUserId();
         log.info("getByDate vote {} for all users", date);
-        return service.getByDateUsers(date);
+        return (SecurityUtil.isAdmin() ? service.getByDateUsers(date) : Collections.emptyList());
     }
 
 
     public void delete(int id) {
-        int userId = SecurityUtil.authUserId();
-        log.info("delete vote {} for user {}", id, userId);
-        service.delete(id, userId);
+        log.info("delete vote {} for user {}", id);
+        if (SecurityUtil.isAdmin()) {
+            service.delete(id);
+        }
     }
 
     public Vote create(Vote vote) {

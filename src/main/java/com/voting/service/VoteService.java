@@ -10,8 +10,7 @@ import java.util.List;
 public interface VoteService {
     Vote get(int id, int userId) throws NotFoundException;
 
-    void delete(int id, int userId) throws NotFoundException;
-
+    void delete(int id) throws NotFoundException;
 
     List<Vote> getAll();
 

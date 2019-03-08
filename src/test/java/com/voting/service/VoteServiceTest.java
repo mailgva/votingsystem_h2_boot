@@ -76,7 +76,7 @@ public class VoteServiceTest extends AbstractServiceTest{
 
     @Test
     public void delete() {
-        service.delete(100065, ADMIN_ID);
+        service.delete(100065);
         assertEquals(service.getAll().size(), 5);
     }
 

@@ -34,8 +34,8 @@ public class VoteServiceImpl implements VoteService {
 
     @CacheEvict(value = "votes", allEntries = true)
     @Override
-    public void delete(int id, int userId) throws NotFoundException {
-        checkNotFoundWithId(repository.delete(id, userId), id);
+    public void delete(int id) throws NotFoundException {
+        repository.delete(id);
     }
 
     @Cacheable("votes")
