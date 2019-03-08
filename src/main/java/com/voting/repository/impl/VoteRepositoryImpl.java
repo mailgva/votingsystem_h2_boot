@@ -11,23 +11,23 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-@Transactional(readOnly = true)
 public class VoteRepositoryImpl implements VoteRepository {
 
     @Autowired
     private CrudVoteRepository crudVoteRepository;
 
     @Override
-    @Transactional
+    //@Transactional
     public Vote save(Vote vote, int userId) {
-        if (!vote.isNew() && get(vote.getId(), userId) == null) {
+        /*if (!vote.isNew() && get(vote.getId(), userId) == null) {
             return null;
-        }
+        }*/
         return crudVoteRepository.save(vote);
+
     }
 
     @Override
-    @Transactional
+    //@Transactional
     public boolean delete(int id, int userId) {
         return crudVoteRepository.delete(id, userId) != 0;
     }
