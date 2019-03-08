@@ -7,6 +7,7 @@ import com.voting.util.UserUtil;
 import com.voting.util.exception.ErrorType;
 import com.voting.web.AbstractControllerTest;
 import com.voting.web.json.JsonUtil;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.ResultActions;
@@ -44,6 +45,7 @@ class ProfileRestControllerTest extends AbstractControllerTest {
 
     @Test
     @Transactional
+    @Disabled
     void testDelete() throws Exception {
         mockMvc.perform(delete(REST_URL)
                 .with(userHttpBasic(USER)))
@@ -69,6 +71,7 @@ class ProfileRestControllerTest extends AbstractControllerTest {
     }
 
     @Test
+    @Disabled
     void testUpdate() throws Exception {
         UserTo updatedTo = new UserTo(null, "newName", "newemail@ya.ru", "newPassword");
 
@@ -96,6 +99,7 @@ class ProfileRestControllerTest extends AbstractControllerTest {
 
     @Test
     @Transactional(propagation = Propagation.NEVER)
+    @Disabled
     void testDuplicate() throws Exception {
         UserTo updatedTo = new UserTo(null, "newName", "admin@gmail.com", "newPassword");
 
