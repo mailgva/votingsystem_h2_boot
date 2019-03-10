@@ -4,6 +4,7 @@ import com.voting.TestUtil;
 import com.voting.model.DailyMenu;
 import com.voting.web.AbstractControllerTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Disabled;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
