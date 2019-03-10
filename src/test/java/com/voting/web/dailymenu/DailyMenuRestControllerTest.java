@@ -42,3 +42,4 @@ public class DailyMenuRestControllerTest extends AbstractControllerTest {
     }
 
 }
+/* test jenkins */
