@@ -3,7 +3,6 @@ package com.voting.web.dailymenu;
 import com.voting.TestUtil;
 import com.voting.model.DailyMenu;
 import com.voting.web.AbstractControllerTest;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -31,7 +30,6 @@ public class DailyMenuRestControllerTest extends AbstractControllerTest {
     }
 
     @Test
-    @Disabled
     void testGetByDate() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(REST_URL + "/bydate/?date=2018-11-21")
                 .with(userHttpBasic(ADMIN)))
@@ -42,4 +40,3 @@ public class DailyMenuRestControllerTest extends AbstractControllerTest {
     }
 
 }
-/* test jenkins */
