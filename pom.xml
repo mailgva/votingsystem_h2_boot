@@ -187,7 +187,8 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
-        </dependency>-->
+        </dependency>
+        -->
         <!-- To compile JSP files -->
         <!--<dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -244,14 +245,13 @@
             <version>${tomcat.version}</version>
             <scope>provided</scope>
         </dependency>-->
-
         <!--
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-         -->
+        -->
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
