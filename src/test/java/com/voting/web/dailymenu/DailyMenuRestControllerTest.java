@@ -30,6 +30,7 @@ public class DailyMenuRestControllerTest extends AbstractControllerTest {
     }
 
     @Test
+    @Disabled
     void testGetByDate() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(REST_URL + "/bydate/?date=2018-11-21")
                 .with(userHttpBasic(ADMIN)))
